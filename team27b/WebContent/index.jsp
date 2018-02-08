@@ -12,14 +12,14 @@
 
 <ul>
 	이인호
-	<li><a href="#">anaunseo</a></li>
-	<li><a href="#">comedion</a></li>
+	<li><a href="<%= request.getContextPath() %>/anaunseo/anaunseoList.jsp">Anaunseo</a></li>
+	<li><a href="<%= request.getContextPath() %>/comedion/comedionList.jsp">Comedion</a></li>
 	배건혜
-	<li><a href="#">actor</a></li>
-	<li><a href="#">actress</a></li>
+	<li><a href="<%= request.getContextPath() %>/actor/actorList.jsp">actor</a></li>
+	<li><a href="<%= request.getContextPath() %>/actress/actressList.jsp">actress</a></li>
 	나성수
-	<li><a href="#">rapper</a></li>
-	<li><a href="#">singer</a></li>
+	<li><a href="<%= request.getContextPath() %>/rapper/rapperList.jsp">rapper</a></li>
+	<li><a href="<%= request.getContextPath() %>/singer/singerList.jsp">singer</a></li>
 </ul>
 
 
