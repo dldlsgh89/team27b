@@ -1,28 +1,55 @@
 package services;
 
-import java.sql.DriverManager;
-import java.sql.SQLException;
 
-import com.mysql.jdbc.Connection;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+
+
+
 
 public class AnaunseoDao {
 	
-	public Connection driverdbcon() throws ClassNotFoundException, SQLException {
-		System.out.println("드라이버로딩 및 db연결메서드 실행");
-		Connection recon = null;
+	public ArrayList<Anaunseo> SelectAnaunseoList() {
+		ArrayList<Anaunseo> ana = null;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		
-		Class.forName("com.mysql.jdbc.Driver");
 		
-		String jdbcDriver = "jdbc:mysql://localhost:3306/mysql;jjdev?" +
-				"useUnicode=true&characterEncoding=euckr";
-		String dbUser = "root";
-		String dbPass = "java0000";
-		
-		DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
-		System.out.println(DriverManager.getConnection(jdbcDriver, dbUser, dbPass));
-		
-		return recon;
-	}
 	
-
+		try {
+			//드라이브 로딩
+			Class.forName("com.mysql.jdbc.Driver");
+			//db연결
+			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
+			String dbUser = "root";
+			String dbPass = "java0000";
+			conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+			//쿼리 실행 준비
+			pstmt = conn.prepareStatement("select * from tb_member");
+			//쿼리 실행 시작
+			rs = pstmt.executeQuery();
+			
+			
+			
+			
+		}catch(SQLException sqlex){
+			sqlex.getMessage();
+			sqlex.printStackTrace();
+			
+		} catch (ClassNotFoundException cnfe) {
+			// 캐치는 하나안에 다 들어가지 못한다. 따로 나누어 써주어야한다
+			cnfe.printStackTrace();
+		}finally {
+			
+		}
+		return ana;  //리턴 타입이 있으니 무조껀 return이 필요함 
+	
+	}
 }

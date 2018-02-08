@@ -9,17 +9,19 @@
 
 팀명 Team27b
 
-<ul>
-	이인호
-	<li><a href="<%= request.getContextPath() %>/anaunseoList.jsp">Anaunseo</a></li>
-	<li><a href="<%= request.getContextPath() %>/comedionList.jsp">Comedion</a></li>
-	배건혜
-	<li><a href="<%= request.getContextPath() %>/actorList.jsp">actor</a></li>
-	<li><a href="<%= request.getContextPath() %>/actressList.jsp">actress</a></li>
-	나성수
-	<li><a href="<%= request.getContextPath() %>/rapperList.jsp">rapper</a></li>
-	<li><a href="<%= request.getContextPath() %>/singerList.jsp">singer</a></li>
-</ul>
+	<ul>
+		이인호
+		<li><a href="<%= request.getContextPath() %>/anaunseoList.jsp">Anaunseo</a></li>
+		<li><a href="<%= request.getContextPath() %>/comedionList.jsp">Comedion</a></li>
+		
+		배건혜
+		<li><a href="<%= request.getContextPath() %>/actorList.jsp">actor</a></li>
+		<li><a href="<%= request.getContextPath() %>/actressList.jsp">actress</a></li>
+		        
+		나성수
+		<li><a href="<%= request.getContextPath() %>/rapperList.jsp">rapper</a></li>
+		<li><a href="<%= request.getContextPath() %>/singerList.jsp">singer</a></li>
+	</ul>
 
 
 </body>
