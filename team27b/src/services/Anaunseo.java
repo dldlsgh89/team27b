@@ -9,20 +9,20 @@ public class Anaunseo {
 	public String getAnaunseoid() {
 		return anaunseoid;
 	}
-	public void setAnaunseoid(String anaunseoid) {
-		this.anaunseoid = anaunseoid;
+	public void setAnaunseoid(String anaunseo_id) {
+		this.anaunseoid = anaunseo_id;
 	}
 	public String getAnaunseoname() {
 		return anaunseoname;
 	}
-	public void setAnaunseoname(String anaunseoname) {
-		this.anaunseoname = anaunseoname;
+	public void setAnaunseoname(String anaunseo_name) {
+		this.anaunseoname = anaunseo_name;
 	}
 	public String getAnaunseoage() {
 		return anaunseoage;
 	}
-	public void setAnaunseoage(String anaunseoage) {
-		this.anaunseoage = anaunseoage;
+	public void setAnaunseoage(String anaunseo_age) {
+		this.anaunseoage = anaunseo_age;
 	}
 	
 	
