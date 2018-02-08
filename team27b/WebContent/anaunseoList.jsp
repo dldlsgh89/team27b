@@ -1,21 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 
-
-
-
-
-<%	
-	
-    
-	
-
-
-
-%><%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
-<!DOCTYPE html>
-
-
 <%@  page import= "services.Anaunseo" %>
 <%@ page import = "services.AnaunseoDao" %>
 
@@ -28,9 +13,10 @@
 <%
 	AnaunseoDao AnaDao = new AnaunseoDao();
 
-	AnaDao.SelectAnaunseoList(){
+	AnaDao.SelectAnaunseoList();
 
 	Anaunseo Ana = new Anaunseo();
+	
 %>
 	
 	<tr>
@@ -40,7 +26,7 @@
 			
 	</tr>
 <%
-	}
+	
 
 %>
 </table>		
