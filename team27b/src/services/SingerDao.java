@@ -19,8 +19,7 @@ public class SingerDao {
 			//드라이버 로딩
 			Class.forName("com.mysql.jdbc.Driver");
 			// DB연결관련 변수에 ip주소,포트번호,db명,dbid,dbpw값들을 담는다
-			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?" +
-							"useUnicode=true&characterEncoding=euckr";
+			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
 			String dbUser = "root";
 			String dbPass = "java0000";
 			// DB연결관련 변수에 담긴값들을 getConnection메서드를 통해 DB연결을 한 후 Connection객체를 생성하여 주소값을 리턴시킨다
