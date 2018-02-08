@@ -8,5 +8,20 @@
 </head>
 <body>
 
+팀명 Team27b
+
+<ul>
+	이인호
+	<li><a href="#">anaunseo</a></li>
+	<li><a href="#">comedion</a></li>
+	배건혜
+	<li><a href="#">actor</a></li>
+	<li><a href="#">actress</a></li>
+	나성수
+	<li><a href="#">rapper</a></li>
+	<li><a href="#">singer</a></li>
+</ul>
+
+
 </body>
 </html>
