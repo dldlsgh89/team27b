@@ -19,19 +19,23 @@
 	<div style="width: 100%;">
 		<div style="width: 85%; float: left;">
 			<table style="width: 100%;" border="1">
-				<tr>
-				<th>아이디</th><th>이름</th><th>나이</th>
-				</tr>
+				<thead>
+					<tr>
+					<th>아이디</th><th>이름</th><th>나이</th>
+					</tr>
+				</thead>
 	<%
 		ComedianDao	Cdo = new ComedianDao();	
-		ArrayList<Comedian> ArrayCom = Cdo.SelectComedianList();		
+		ArrayList<Comedian> ArrayCom = Cdo.selectComedianList();		
 		for(Comedian com : ArrayCom){
 	%>	
+		<tbody>
 			<tr>
 				<td><%= com.getComedianid() %></td>
 				<td><%= com.getComedianname() %></td>
 				<td><%= com.getComedianage() %></td>
 			</tr>
+		</tbody>	
 	<%
 		}
 	%>

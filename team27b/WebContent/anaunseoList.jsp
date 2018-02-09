@@ -19,24 +19,27 @@
 	<div style="width: 100%;">
 		<div style="width: 85%; float: left;">
 			<table style="width: 100%;" border="1">
-				<tr>
-				<th>아이디</th><th>이름</th><th>나이</th>
-				</tr>
+				<thead>
+					<tr>
+					<th>아이디</th><th>이름</th><th>나이</th>
+					</tr>
+				</thead>	
 		<!-- 테이블 윗부분에서 각 칼럼위치의 제목을 먼저 잡아준다 -->
 	
 	<%
 		AnaunseoDao Ado = new AnaunseoDao();
-		ArrayList<Anaunseo> ArrayAna = Ado.SelectAnaunseoList();		
+		ArrayList<Anaunseo> ArrayAna = Ado.selectAnaunseoList();		
 		for(int i = 0; i<ArrayAna.size(); i++){
 			Anaunseo Ana = ArrayAna.get(i);			
 			//
 	%>
-				
-			<tr>
-				<td><%= Ana.getAnaunseoid()%></td>
-				<td><%= Ana.getAnaunseoname()%></td>
-				<td><%= Ana.getAnaunseoage()%></td>				
-			</tr>				
+			<tbody>	
+				<tr>
+					<td><%= Ana.getAnaunseoid()%></td>
+					<td><%= Ana.getAnaunseoname()%></td>
+					<td><%= Ana.getAnaunseoage()%></td>				
+				</tr>
+			</tbody>						
 	<%
 			}
 	%>

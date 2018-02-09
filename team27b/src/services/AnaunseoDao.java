@@ -2,8 +2,6 @@
 
 package services;
 
-
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -13,21 +11,13 @@ import java.util.ArrayList;
 
 import services.Anaunseo;
 
-
-
-
-
 public class AnaunseoDao {
 	
-	public ArrayList<Anaunseo> SelectAnaunseoList() {
+	public ArrayList<Anaunseo> selectAnaunseoList() {
 		ArrayList<Anaunseo> ArrayAna = new ArrayList<Anaunseo>();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		
-		
-		
-	
 		try {
 			//드라이브 로딩
 			Class.forName("com.mysql.jdbc.Driver");
@@ -42,23 +32,16 @@ public class AnaunseoDao {
 			
 			//쿼리 실행 시작
 			rs = pstmt.executeQuery();
-			
-
-			
+		
 //while문을 통해 준비된 쿼리문장을 실행하고 값을 받아서 값이 나오지 않을때까지 반복하는 메서드를 만든후 
 //select 쿼리문장으로 검색된 각 컬럼값들을 받아 anaunseo클래스 타입의 어레이리스트 객체를 만들어 참조값을 담은 ana Dto에 셋팅한다?
-			
 			while(rs.next()) {									
 			Anaunseo ana = new Anaunseo();
 			   ana.setAnaunseoid(rs.getInt("anaunseo_id"));
 			   ana.setAnaunseoname(rs.getString("anaunseo_name"));
 			   ana.setAnaunseoage(rs.getInt("anaunseo_age"));	
-			   
 			   ArrayAna.add(ana);
-			}
-			
-			
-
+			}			
 		}catch(SQLException sqlex){
 			sqlex.getMessage(); //어떻게 출력된다고 했었는데 기억이 안난다
 			sqlex.printStackTrace();
@@ -74,4 +57,6 @@ public class AnaunseoDao {
 		return ArrayAna;  //리턴 타입이 있으니 무조껀 return이 필요함 
 	
 	}
+	
+
 }
