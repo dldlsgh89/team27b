@@ -20,6 +20,8 @@
 	ArrayList<Anaunseo> ArrayAna = Ado.SelectAnaunseoList();
 	
 	for(int i = 0; i<ArrayAna.size(); i++){
+		Ana = ArrayAna.get(i);
+		
 %>
 	
 	<tr>
@@ -30,6 +32,5 @@
 	</tr>
 <%
 	}
-
 %>
 </table>		
