@@ -33,10 +33,8 @@ public class ActorDao {
 				actor.setActorId(resultset.getInt(" actorId"));
 				actor.setActorName(resultset.getString("actorName"));
 				actor.setActorAge(resultset.getInt("actorAge"));
-				arrayActor.add(actor);
-						
+				arrayActor.add(actor);			
 			}
-			
 		}catch(ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch(SQLException e) {
