@@ -33,9 +33,9 @@ public class RapperDao {
 			
 			while(rs.next()) {
 				Rapper rapper = new Rapper();
-				rapper.setRapperId(rs.getInt("repper_id"));
-				rapper.setRapperName(rs.getString("repper_name"));
-				rapper.setRapperAge(rs.getInt("repper_age"));
+				rapper.setRapperId(rs.getInt("rapper_id"));
+				rapper.setRapperName(rs.getString("rapper_name"));
+				rapper.setRapperAge(rs.getInt("rapper_age"));
 				list.add(rapper);
 			}
 		}catch(SQLException ex) {
