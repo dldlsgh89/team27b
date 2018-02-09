@@ -1,16 +1,18 @@
+//27기 B조 이인호
+
 package services;
 
 public class Comedion {
 	
-	private String comedionid;  
+	private int comedionid;  
 	private String comedionname;
-	private String comedionage;
+	private int comedionage;
 	
 	
-	public String getComedionid() {
+	public int getComedionid() {
 		return comedionid;
 	}
-	public void setComedionid(String comedion_id) {
+	public void setComedionid(int comedion_id) {
 		this.comedionid = comedion_id;
 	}
 	public String getComedionname() {
@@ -19,11 +21,16 @@ public class Comedion {
 	public void setComedionname(String comedion_name) {
 		this.comedionname = comedion_name;
 	}
-	public String getComedionage() {
+	public int getComedionage() {
 		return comedionage;
 	}
-	public void setComedionage(String comedion_age) {
+	public void setComedionage(int comedion_age) {
 		this.comedionage = comedion_age;
+	}
+	@Override
+	public String toString() {
+		return "Comedion [comedionid=" + comedionid + ", comedionname=" + comedionname + ", comedionage=" + comedionage
+				+ "]";
 	}
 	
 

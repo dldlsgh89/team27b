@@ -1,3 +1,5 @@
+//27기 B조 이인호
+
 package services;
 
 public class Anaunseo {
@@ -23,6 +25,11 @@ public class Anaunseo {
 	}
 	public void setAnaunseoage(int anaunseo_age) {
 		this.anaunseoage = anaunseo_age;
+	}
+	@Override
+	public String toString() {
+		return "Anaunseo [anaunseoid=" + anaunseoid + ", anaunseoname=" + anaunseoname + ", anaunseoage=" + anaunseoage
+				+ "]";
 	}
 	
 	

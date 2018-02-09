@@ -1,3 +1,5 @@
+//27기 B조 이인호
+
 package services;
 
 
@@ -36,7 +38,7 @@ public class AnaunseoDao {
 			String dbPass = "java0000";
 			conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 			//쿼리 실행 준비
-			pstmt = conn.prepareStatement("select * from anaunseo;");
+			pstmt = conn.prepareStatement("select anaunseo_id,anaunseo_name,anaunseo_age from anaunseo");
 			
 			
 			//쿼리 실행 시작
@@ -66,9 +68,9 @@ public class AnaunseoDao {
 			// 캐치는 하나안에 다 들어가지 못한다. 따로 나누어 써주어야한다
 			cnfe.printStackTrace();
 		}finally {
-			if(rs != null) try {rs.close();} catch(SQLException ex) {}
-			if(pstmt != null) try {pstmt.close();} catch(SQLException ex) {}
-			if(conn != null) try {conn.close();} catch(SQLException ex) {}
+			if(rs != null) try {rs.close();} catch(SQLException sqlex) {}
+			if(pstmt != null) try {pstmt.close();} catch(SQLException sqlex) {}
+			if(conn != null) try {conn.close();} catch(SQLException sqlex) {}
 		}
 		return ArrayAna;  //리턴 타입이 있으니 무조껀 return이 필요함 
 	
