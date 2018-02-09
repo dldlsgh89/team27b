@@ -1,3 +1,5 @@
+//³ª¼º¼ö
+
 package services;
 
 public class Singer {
@@ -21,6 +23,12 @@ public class Singer {
 	}
 	public void setSingerAge(int singerAge) {
 		this.singerAge = singerAge;
+	}
+	@Override
+	public String toString() {
+		return "Singer [singerId=" + singerId + ", singerName=" + singerName + ", singerAge=" + singerAge
+				+ ", getSingerId()=" + getSingerId() + ", getSingerName()=" + getSingerName() + ", getSingerAge()="
+				+ getSingerAge() + "]";
 	}
 	
 }

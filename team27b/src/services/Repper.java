@@ -1,3 +1,5 @@
+//³ª¼º¼ö
+
 package services;
 
 public class Repper {
@@ -21,6 +23,12 @@ public class Repper {
 	}
 	public void setRepperAge(int repperAge) {
 		this.repperAge = repperAge;
+	}
+	@Override
+	public String toString() {
+		return "Repper [repperId=" + repperId + ", repperName=" + repperName + ", repperAge=" + repperAge
+				+ ", getRepperId()=" + getRepperId() + ", getRepperName()=" + getRepperName() + ", getRepperAge()="
+				+ getRepperAge() + "]";
 	}
 	
 }

@@ -1,3 +1,5 @@
+//³ª¼º¼ö
+
 package services;
 
 import java.sql.Connection;
@@ -9,7 +11,7 @@ import java.util.ArrayList;
 
 public class RapperDao {
 	
-	public ArrayList<Repper> selectSingerList() {
+	public ArrayList<Repper> selectRepperList() {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -25,7 +27,7 @@ public class RapperDao {
 			
 			conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 			
-			pstmt = conn.prepareStatement("SELECT * FROM repper");
+			pstmt = conn.prepareStatement("SELECT repper_id,repper_name,repper_age FROM repper");
 			
 			rs = pstmt.executeQuery();
 			

@@ -1,3 +1,5 @@
+<!-- ³ª¼º¼ö -->
+
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%@ page import="services.SingerDao" %>
@@ -17,20 +19,20 @@
 		<th>singer_id</th><th>singer_name</th><th>singer_age</th>
 		</tr>
 		
-	<%
-	SingerDao singerDao = new SingerDao();
-	ArrayList<Singer> list = singerDao.selectSingerList();
-	
-	for(Singer singer : list){
-	%>
-		<tr>
-		<td><%= singer.getSingerId() %></td>
-		<td><%= singer.getSingerName() %></td>
-		<td><%= singer.getSingerAge() %></td>
-		</tr>
-	<%
-	}
-	%>
+		<%
+		SingerDao singerDao = new SingerDao();
+		ArrayList<Singer> list = singerDao.selectSingerList();
+		
+		for(Singer singer : list){
+		%>
+			<tr>
+			<td><%= singer.getSingerId() %></td>
+			<td><%= singer.getSingerName() %></td>
+			<td><%= singer.getSingerAge() %></td>
+			</tr>
+		<%
+		}
+		%>
 	</table>
 </body>
 </html>
