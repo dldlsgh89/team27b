@@ -15,7 +15,7 @@
 		<li><a href="<%= request.getContextPath() %>/anaunseoList.jsp">Anaunseo</a></li>
 		<li><a href="<%= request.getContextPath() %>/comedionList.jsp">Comedion</a></li>
 		
-		<img src="#" width="" height=""/>
+		<img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.com%2Fimage%2F020%2F2011%2F02%2F21%2F35006390.1.jpg&type=b400" width="150px" height="200px"/>
 		<br>¹è°ÇÇý
 		<li><a href="<%= request.getContextPath() %>/actorList.jsp">actor</a></li>
 		<li><a href="<%= request.getContextPath() %>/actressList.jsp">actress</a></li>
