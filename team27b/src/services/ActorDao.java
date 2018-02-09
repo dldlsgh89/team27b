@@ -21,7 +21,7 @@ public class ActorDao {
 				String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&charaterEncoding=euckr";
 				String dbUser = "root";
 				String dbPass = "java0000";
-				String sql = "SELECT actor_id,actor_name,actor_age FROM actor";
+				String sql = "SELECT actor_id, actor_name,actor_age FROM actor";
 						
 				connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass); 
 				preparedstatement = connection.prepareStatement(sql);
@@ -31,13 +31,9 @@ public class ActorDao {
 				
 				while(resultset.next()) {
 					Actor actor = new Actor();
-					String ActorId = resultset.getString("actorId");
-					String ActorName = resultset.getString("actorName");
-					String ActorAge = resultset.getString("actorAge");
-					
-					actor.setActorId(Integer.parseInt(ActorId));
-					actor.setActorName(ActorName);
-					actor.setActorAge(Integer.parseInt(ActorAge));
+					actor.setActorId(resultset.getInt("actor_id"));
+					actor.setActorName(resultset.getString("actor_name"));
+					actor.setActorAge(resultset.getInt("actor_age"));
 					arrayActor.add(actor);
 							
 				}
