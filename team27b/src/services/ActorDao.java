@@ -7,8 +7,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 public class ActorDao {
-/*
-	public ActorDao() {
+
+	/*public ActorDao() {
 		public ArrayList<Actor> selectActorList(){
 			ArrayList<Actor> actor = null;
 			PreparedStatement preparedstatement = null;
@@ -22,7 +22,11 @@ public class ActorDao {
 				String dbPass = "java0000";
 				
 				connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass); 
-			
+				preparedStatement = connection.prepareStatement("select Actor_id,Actor_name,Actor_age from Actor");
+				resultSet = preparedStatement.executeQuery();
+				
+				ArrayActor = new ArrayList<Actor>();
+				String actorId = result
 			}
 		}
 	}*/
