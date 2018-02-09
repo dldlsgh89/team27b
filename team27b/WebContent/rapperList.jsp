@@ -11,28 +11,48 @@
 <title>Insert title here</title>
 </head>
 <body>
-	rapperList.jsp<br>
-	
-	<table width="100%" border="1">
-		<tr>
-		<th>아이디</th><th>이름</th><th>나이</th>
-		</tr>
-		
-		<%
-		RapperDao rapperDao = new RapperDao();
-		ArrayList<Rapper> list = rapperDao.selectRapperList();
-		
-		for(Rapper rapper : list){
-		%>
-			<tr>
-			<td><%= rapper.getRapperId() %></td>
-			<td><%= rapper.getRapperName() %></td>
-			<td><%= rapper.getRapperAge() %></td>
-			</tr>
-		<%
-		}
-		%>
-	</table>
-	<a href="<%= request.getContextPath() %>/index.jsp">홈화면</a>
+	<div>
+		<h1 style="text-align: center;">랩퍼 정보 목록</h1>
+	</div>
+	<div style="width: 100%;">
+		<div style="width: 90%; float: left;">
+			<table style="width: 100%;" border="1">
+				<tr>
+				<th>아이디</th><th>이름</th><th>나이</th>
+				</tr>
+				
+				<%
+				RapperDao rapperDao = new RapperDao();
+				ArrayList<Rapper> list = rapperDao.selectRapperList();
+				
+				for(Rapper rapper : list){
+				%>
+					<tr>
+					<td><%= rapper.getRapperId() %></td>
+					<td><%= rapper.getRapperName() %></td>
+					<td><%= rapper.getRapperAge() %></td>
+					</tr>
+				<%
+				}
+				%>
+			</table>
+		</div>
+		<div style="float:left;">
+			<table>
+				<tr>
+					<td><a href="<%= request.getContextPath() %>/index.jsp">홈화면</a></td>
+				</tr>
+				<tr>
+					<td><a href="<%= request.getContextPath() %>/index.jsp">랩퍼추가</a></td>
+				</tr>
+				<tr>
+					<td><a href="<%= request.getContextPath() %>/index.jsp">랩퍼수정</a></td>
+				</tr>
+				<tr>
+					<td><a href="<%= request.getContextPath() %>/index.jsp">랩퍼삭제</a></td>
+				</tr>
+			</table>
+		</div>
+	</div>
 </body>
 </html>

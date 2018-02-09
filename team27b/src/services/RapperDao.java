@@ -10,17 +10,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class RapperDao {
-	
+	// selectRapperList메서드 선언
 	public ArrayList<Rapper> selectRapperList() {
+		// 참조변수를 선언한다
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-
+		//Rapper 배열을 만든다
 		ArrayList<Rapper> list = new ArrayList<Rapper>();
 		try {
-		
+			// 드라이버 로딩
 			Class.forName("com.mysql.jdbc.Driver");
-			
+			// DB연결관련 변수에 ip주소,포트번호,db명,dbid,dbpw값들을 담는다
 			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
 			String dbUser = "root";
 			String dbPass = "java0000";
