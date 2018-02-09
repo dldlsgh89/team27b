@@ -39,7 +39,7 @@ public class AnaunseoDao {
 			conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 			//쿼리 실행 준비
 			pstmt = conn.prepareStatement("select anaunseo_id,anaunseo_name,anaunseo_age from anaunseo");
-			
+										//// anaunseo_id as anaunseoid = 컬럼명 anaunseo_id을 anaunseoid 바꾼다 as나 ""는 생략이 가능하다
 			
 			//쿼리 실행 시작
 			rs = pstmt.executeQuery();

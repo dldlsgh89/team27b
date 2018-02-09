@@ -10,15 +10,18 @@
 팀명 Team27b
 
 	<ul>
-		<img src="#" width="" height=""/>이인호
+		<img src="https://search.pstatic.net/common?type=a&size=120x150&quality=95&direct=true&src=http%3A%2F%2Fsstatic.naver.net%2Fpeople%2Fportrait%2F201703%2F20170310160206249.jpg" width="" height=""/>
+		<br>이인호
 		<li><a href="<%= request.getContextPath() %>/anaunseoList.jsp">Anaunseo</a></li>
 		<li><a href="<%= request.getContextPath() %>/comedionList.jsp">Comedion</a></li>
 		
-		<img src="#" width="" height=""/>배건혜
+		<img src="#" width="" height=""/>
+		<br>배건혜
 		<li><a href="<%= request.getContextPath() %>/actorList.jsp">actor</a></li>
 		<li><a href="<%= request.getContextPath() %>/actressList.jsp">actress</a></li>
 		        
-		<img src="#" width="" height=""/>나성수
+		<img src="#" width="" height=""/>
+		<br>나성수
 		<li><a href="<%= request.getContextPath() %>/rapperList.jsp">rapper</a></li>
 		<li><a href="<%= request.getContextPath() %>/singerList.jsp">singer</a></li>
 	</ul>
