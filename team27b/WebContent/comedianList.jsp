@@ -15,30 +15,26 @@
 <body>
 	comedianList.jsp<br>
 
-<table width=100% border="1">
-	<tr>
-		<td>아이디</td>
-		<td>이름</td>
-		<td>나이</td>
-	</tr>
-
-
-
-<%
-	ComedianDao	Cdo = new ComedianDao();
-
-	ArrayList<Comedian> ArrayCom = Cdo.SelectComedianList();
-	
+	<table width=100% border="1">
+		<tr>
+			<td>아이디</td>
+			<td>이름</td>
+			<td>나이</td>
+		</tr>	
+	<%
+		ComedianDao	Cdo = new ComedianDao();	
+		ArrayList<Comedian> ArrayCom = Cdo.SelectComedianList();		
 		for(Comedian com : ArrayCom){
-%>	
+	%>	
 			<tr>
 				<td><%= com.getComedianid() %></td>
 				<td><%= com.getComedianname() %></td>
 				<td><%= com.getComedianage() %></td>
 			</tr>
-<%
+	<%
 		}
-%>
-</table>
+	%>
+	</table>
+<a href="<%= request.getContextPath() %>/index.jsp">홈화면</a>
 </body>
 </html>
