@@ -1,3 +1,4 @@
+//27±â BÁ¶ ¹è°ÇÇý  
 package services;
 
 public class Actor {
@@ -24,9 +25,9 @@ public class Actor {
 	}
 	@Override
 	public String toString() {
-		return "Actor [ActorId=" + ActorId + ", ActorName=" + ActorName + ", ActorAge=" + ActorAge + ", getActorId()="
-				+ getActorId() + ", getActorName()=" + getActorName() + ", getActorAge()=" + getActorAge() + "]";
+		return "Actor [ActorId=" + ActorId + ", ActorName=" + ActorName + ", ActorAge=" + ActorAge + "]";
 	}
+	
 	
 }
 	
