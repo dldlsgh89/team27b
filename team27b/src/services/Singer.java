@@ -26,9 +26,8 @@ public class Singer {
 	}
 	@Override
 	public String toString() {
-		return "Singer [singerId=" + singerId + ", singerName=" + singerName + ", singerAge=" + singerAge
-				+ ", getSingerId()=" + getSingerId() + ", getSingerName()=" + getSingerName() + ", getSingerAge()="
-				+ getSingerAge() + "]";
+		return "Singer [singerId=" + singerId + ", singerName=" + singerName + ", singerAge=" + singerAge + "]";
 	}
+	
 	
 }

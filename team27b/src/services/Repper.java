@@ -26,9 +26,8 @@ public class Repper {
 	}
 	@Override
 	public String toString() {
-		return "Repper [repperId=" + repperId + ", repperName=" + repperName + ", repperAge=" + repperAge
-				+ ", getRepperId()=" + getRepperId() + ", getRepperName()=" + getRepperName() + ", getRepperAge()="
-				+ getRepperAge() + "]";
+		return "Repper [repperId=" + repperId + ", repperName=" + repperName + ", repperAge=" + repperAge + "]";
 	}
+	
 	
 }
