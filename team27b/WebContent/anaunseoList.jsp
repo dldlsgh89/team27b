@@ -3,6 +3,8 @@
 
 <%@  page import= "services.Anaunseo" %>
 <%@ page import = "services.AnaunseoDao" %>
+<%@ page import = "java.util.ArrayList" %>
+
 
 
 <table width="100%" border="1">
@@ -11,12 +13,13 @@
 </tr>
 
 <%
-	AnaunseoDao AnaDao = new AnaunseoDao();
-
-	AnaDao.SelectAnaunseoList();
-
+	
+	AnaunseoDao Ado = new AnaunseoDao();
 	Anaunseo Ana = new Anaunseo();
 	
+	ArrayList<Anaunseo> ArrayAna = Ado.SelectAnaunseoList();
+	
+	for(int i = 0; i<ArrayAna.size(); i++){
 %>
 	
 	<tr>
@@ -26,7 +29,7 @@
 			
 	</tr>
 <%
-	
+	}
 
 %>
 </table>		
