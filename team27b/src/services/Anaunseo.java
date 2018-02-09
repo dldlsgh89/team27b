@@ -26,7 +26,7 @@ public class Anaunseo {
 	public void setAnaunseoage(int anaunseo_age) {
 		this.anaunseoage = anaunseo_age;
 	}
-	@Override
+	@Override //아직 뭔소리인지를 모르겠지만 
 	public String toString() {
 		return "Anaunseo [anaunseoid=" + anaunseoid + ", anaunseoname=" + anaunseoname + ", anaunseoage=" + anaunseoage
 				+ "]";

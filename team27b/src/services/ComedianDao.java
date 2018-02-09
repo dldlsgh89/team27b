@@ -9,10 +9,10 @@ import java.sql.SQLException;
 
 import java.util.ArrayList;
 
-public class ComedionDao {
+public class ComedianDao {
 
-	public ArrayList<Comedion> SelectComedionList() throws ClassNotFoundException{
-		ArrayList<Comedion> ArrayCom = new ArrayList<Comedion>();
+	public ArrayList<Comedian> SelectComedianList() throws ClassNotFoundException{
+		ArrayList<Comedian> ArrayCom = new ArrayList<Comedian>();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -25,15 +25,15 @@ public class ComedionDao {
 			String dbPass = "java0000";
 			conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 			
-			pstmt = conn.prepareStatement("select comedion_id,comedion_name,comedion_age from comedion");
+			pstmt = conn.prepareStatement("select comedian_id,comedian_name,comedian_age from comedian");
 			
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				Comedion com = new Comedion();
-				com.setComedionid(Integer.parseInt(rs.getString("comedion_id")));
-				com.setComedionname(rs.getString("comedion_name"));
-				com.setComedionage(rs.getInt("comedion_age"));
+				Comedian com = new Comedian();
+				com.setComedianid(Integer.parseInt(rs.getString("comedian_id")));
+				com.setComedianname(rs.getString("comedian_name"));
+				com.setComedianage(rs.getInt("comedian_age"));
 				
 				ArrayCom.add(com);
 			}

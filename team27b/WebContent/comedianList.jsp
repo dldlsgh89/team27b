@@ -1,9 +1,9 @@
 <!-- //27기 B조 이인호 -->
 
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
-<%@ page import = "services.ComedionDao" %>
+<%@ page import = "services.ComedianDao" %>
 <%@ page import = "java.util.ArrayList" %>
-<%@ page import = "services.Comedion" %>
+<%@ page import = "services.Comedian" %>
 
 <!DOCTYPE html>
 
@@ -13,7 +13,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	comedionList.jsp<br>
+	comedianList.jsp<br>
 
 <table width=100% border="1">
 	<tr>
@@ -25,16 +25,16 @@
 
 
 <%
-	ComedionDao	Cdo = new ComedionDao();
+	ComedianDao	Cdo = new ComedianDao();
 
-	ArrayList<Comedion> ArrayCom = Cdo.SelectComedionList();
+	ArrayList<Comedian> ArrayCom = Cdo.SelectComedianList();
 	
-		for(Comedion com : ArrayCom){
+		for(Comedian com : ArrayCom){
 %>	
 			<tr>
-				<td><%= com.getComedionid() %></td>
-				<td><%= com.getComedionname() %></td>
-				<td><%= com.getComedionage() %></td>
+				<td><%= com.getComedianid() %></td>
+				<td><%= com.getComedianname() %></td>
+				<td><%= com.getComedianage() %></td>
 			</tr>
 <%
 		}
