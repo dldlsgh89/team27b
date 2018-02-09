@@ -16,7 +16,7 @@
 	
 	<table border="1">
 		<tr>
-		<th>singer_id</th><th>singer_name</th><th>singer_age</th>
+		<th>아이디</th><th>이름</th><th>나이</th>
 		</tr>
 		
 		<%

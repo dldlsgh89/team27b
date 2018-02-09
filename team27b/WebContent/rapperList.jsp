@@ -15,7 +15,7 @@
 	
 	<table border="1">
 		<tr>
-		<th>rapper_id</th><th>rapper_name</th><th>rapper_age</th>
+		<th>아이디</th><th>이름</th><th>나이</th>
 		</tr>
 		
 		<%
