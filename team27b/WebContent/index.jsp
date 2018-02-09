@@ -20,7 +20,7 @@
 		<li><a href="<%= request.getContextPath() %>/actorList.jsp">actor</a></li>
 		<li><a href="<%= request.getContextPath() %>/actressList.jsp">actress</a></li>
 		        
-		<img src="#" width="" height=""/>
+		<img src="https://search.pstatic.net/common?type=a&size=120x150&quality=95&direct=true&src=http%3A%2F%2Fsstatic.naver.net%2Fpeople%2F50%2F201411051850451391.jpg" width="" height=""/>
 		<br>³ª¼º¼ö
 		<li><a href="<%= request.getContextPath() %>/rapperList.jsp">rapper</a></li>
 		<li><a href="<%= request.getContextPath() %>/singerList.jsp">singer</a></li>
