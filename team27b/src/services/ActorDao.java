@@ -10,7 +10,7 @@ public class ActorDao {
 
 	/*public ActorDao() {
 		public ArrayList<Actor> selectActorList(){
-			ArrayList<Actor> actor = null;
+			ArrayList<Actor> arrayActor = null;
 			PreparedStatement preparedstatement = null;
 			ResultSet resultset = null;
 			Connection connection = null;
@@ -22,11 +22,25 @@ public class ActorDao {
 				String dbPass = "java0000";
 				
 				connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass); 
-				preparedStatement = connection.prepareStatement("select Actor_id,Actor_name,Actor_age from Actor");
-				resultSet = preparedStatement.executeQuery();
+				preparedstatement = connection.prepareStatement("select Actor_id,Actor_name,Actor_age from Actor");
+				resultset = preparedstatement.executeQuery();
 				
-				ArrayActor = new ArrayList<Actor>();
-				String actorId = result
+				arrayActor = new ArrayList<Actor>();
+				while(resultset.next()) {
+					Actor actor = new Actor();
+					String ActorId = resultset.getString("actorId");
+					String ActorName = resultset.getString("actorName");
+					String ActorAge = resultset.getString("actorAge");
+					
+					actor.setActorId(Integer.parseInt(ActorId));
+					actor.setActorName(ActorName);
+					actor.setActorAge(Integer.parseInt(ActorAge));
+					arrayActor.add(actor);
+							
+				}
+				
+			}catch() {
+				
 			}
 		}
 	}*/

@@ -1,13 +1,13 @@
 package services;
 
 public class Actor {
-	private String ActorId;
+	private int ActorId;
 	private String ActorName;
 	private int ActorAge;
-	public String getActorId() {
+	public int getActorId() {
 		return ActorId;
 	}
-	public void setActorId(String actorId) {
+	public void setActorId(int actorId) {
 		ActorId = actorId;
 	}
 	public String getActorName() {
@@ -22,6 +22,6 @@ public class Actor {
 	public void setActorAge(int actorAge) {
 		ActorAge = actorAge;
 	}
-
+	
 	
 }
