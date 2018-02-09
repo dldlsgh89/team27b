@@ -22,6 +22,13 @@ public class Actor {
 	public void setActorAge(int actorAge) {
 		ActorAge = actorAge;
 	}
-	
+	@Override
+	public String toString() {
+		return "Actor [ActorId=" + ActorId + ", ActorName=" + ActorName + ", ActorAge=" + ActorAge + ", getActorId()="
+				+ getActorId() + ", getActorName()=" + getActorName() + ", getActorAge()=" + getActorAge() + "]";
+	}
 	
 }
+	
+	
+
