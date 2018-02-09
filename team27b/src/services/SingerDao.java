@@ -10,9 +10,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class SingerDao {
+	// insertSingerList메서드 선언
+	public void insertSingerList() {
+		// jdbc관련 참조변수를 선언한다
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		
+	}
+	
 	// selectSingerList메서드 선언
 	public ArrayList<Singer> selectSingerList() {
-		// 참조변수를 선언한다
+		// jdbc관련 참조변수를 선언한다
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -28,7 +37,7 @@ public class SingerDao {
 			// DB연결관련 변수에 담긴값들을 getConnection메서드를 통해 DB연결을 한 후 Connection객체를 생성하여 주소값을 리턴시켜 conn 참조변수에 담는다
 			conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 			// 리턴받은 주소값을 받아 Connection객체에 들어간 후 쿼리실행 준비메서드를 실행하고 statement객체를 새로 생성 후 그 주소값을 리턴시켜 pstmt 참조변수에 담는다
-			pstmt = conn.prepareStatement("SELECT singer_id,singer_name,singer_age FROM singer");
+			pstmt = conn.prepareStatement("SELECT singer_id,singer_name,singer_age FROM singer ORDER BY singer_id ASC");
 			// 리턴받은 주소값을 받아 statement객체에 들어간 후 쿼리실행을 하고 ResultSet객체를 생성하여 쿼리 실행 결과를 데이터영역에 담고 생성된 주소값을 리턴하여 rs 참조변수에 담는다
 			rs = pstmt.executeQuery();
 			// 리턴받은 주소값을 받아 ResultSet객체내 next메서드를 호출하여 데이터영역에 한줄 한줄 데이터존재 유무를 읽어 오고 존재하면 true값을 리턴하고

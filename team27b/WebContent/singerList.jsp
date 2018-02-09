@@ -18,24 +18,29 @@
 	<div style="width: 100%;">
 		<div style="width: 90%; float: left;">
 			<table style="width: 100%;" border="1">
-				<tr>
-				<th>아이디</th><th>이름</th><th>나이</th>
-				</tr>
-			
-				<%
-				SingerDao singerDao = new SingerDao();
-				ArrayList<Singer> list = singerDao.selectSingerList();
-				
-				for(Singer singer : list){
-				%>
+				<thead>
 					<tr>
-					<td><%= singer.getSingerId() %></td>
-					<td><%= singer.getSingerName() %></td>
-					<td><%= singer.getSingerAge() %></td>
+					<th>아이디</th><th>이름</th><th>나이</th>
 					</tr>
-				<%
-				}
-				%>
+				</thead>
+				<tbody>
+					<%
+					// SingerDao 객체를 생성하고 singerDao 참조변수에 주소값을 담는다
+					SingerDao singerDao = new SingerDao();
+					// selectSinger메서드를 호출하고 리턴값인 RsultSet객체주소값을 list 참조변수에 담는다
+					ArrayList<Singer> list = singerDao.selectSingerList();
+					// list에 담긴 주소를 찾아가 singer객체들을 가져오고 객체들의 양만큼 반복한다
+					for(Singer singer : list){
+					%>
+						<tr>
+						<td><%= singer.getSingerId() %></td>
+						<td><%= singer.getSingerName() %></td>
+						<td><%= singer.getSingerAge() %></td>
+						</tr>
+					<%
+					}
+					%>
+				</tbody>
 			</table>
 		</div>
 		<div style="float:left;">

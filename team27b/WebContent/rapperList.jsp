@@ -17,24 +17,27 @@
 	<div style="width: 100%;">
 		<div style="width: 90%; float: left;">
 			<table style="width: 100%;" border="1">
-				<tr>
-				<th>아이디</th><th>이름</th><th>나이</th>
-				</tr>
-				
-				<%
-				RapperDao rapperDao = new RapperDao();
-				ArrayList<Rapper> list = rapperDao.selectRapperList();
-				
-				for(Rapper rapper : list){
-				%>
+				<thead>
 					<tr>
-					<td><%= rapper.getRapperId() %></td>
-					<td><%= rapper.getRapperName() %></td>
-					<td><%= rapper.getRapperAge() %></td>
+					<th>아이디</th><th>이름</th><th>나이</th>
 					</tr>
-				<%
-				}
-				%>
+				</thead>
+				<tbody>
+					<%
+					RapperDao rapperDao = new RapperDao();
+					ArrayList<Rapper> list = rapperDao.selectRapperList();
+					
+					for(Rapper rapper : list){
+					%>
+						<tr>
+						<td><%= rapper.getRapperId() %></td>
+						<td><%= rapper.getRapperName() %></td>
+						<td><%= rapper.getRapperAge() %></td>
+						</tr>
+					<%
+					}
+					%>
+				</tbody>
 			</table>
 		</div>
 		<div style="float:left;">

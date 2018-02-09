@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class RapperDao {
 	// selectRapperList메서드 선언
 	public ArrayList<Rapper> selectRapperList() {
-		// 참조변수를 선언한다
+		// jdbc관련 참조변수를 선언한다
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
