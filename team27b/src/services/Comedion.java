@@ -10,20 +10,20 @@ public class Comedion {
 	public String getComedionid() {
 		return comedionid;
 	}
-	public void setComedionid(String comedionid) {
-		this.comedionid = comedionid;
+	public void setComedionid(String comedion_id) {
+		this.comedionid = comedion_id;
 	}
 	public String getComedionname() {
 		return comedionname;
 	}
-	public void setComedionname(String comedionname) {
-		this.comedionname = comedionname;
+	public void setComedionname(String comedion_name) {
+		this.comedionname = comedion_name;
 	}
 	public String getComedionage() {
 		return comedionage;
 	}
-	public void setComedionage(String comedionage) {
-		this.comedionage = comedionage;
+	public void setComedionage(String comedion_age) {
+		this.comedionage = comedion_age;
 	}
 	
 

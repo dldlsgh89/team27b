@@ -21,7 +21,9 @@ public class AnaunseoDao {
 		ArrayList<Anaunseo> ArrayAna = null;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
+		
 		ResultSet rs = null;
+		
 		
 		
 	
@@ -34,9 +36,12 @@ public class AnaunseoDao {
 			String dbPass = "java0000";
 			conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 			//쿼리 실행 준비
-			pstmt = conn.prepareStatement("select * from tb_member");
+			pstmt = conn.prepareStatement("select * from anaunseo;");
+			
+			
 			//쿼리 실행 시작
 			rs = pstmt.executeQuery();
+			
 
 			
 //while문을 통해 준비된 쿼리문장을 실행하고 값을 받아서 값이 나오지 않을때까지 반복하는 메서드를 만든후 
@@ -44,9 +49,9 @@ public class AnaunseoDao {
 			ArrayAna = new ArrayList<Anaunseo>();
 			while(rs.next()) {									
 			Anaunseo ana = new Anaunseo();
-			   ana.setAnaunseoid(rs.getString("anaunseo_id"));
+			   ana.setAnaunseoid(rs.getInt("anaunseo_id"));
 			   ana.setAnaunseoname(rs.getString("anaunseo_name"));
-			   ana.setAnaunseoage(rs.getString("anaunseo_age"));	
+			   ana.setAnaunseoage(rs.getInt("anaunseo_age"));	
 			   
 			   ArrayAna.add(ana);
 			}

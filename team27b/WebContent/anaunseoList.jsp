@@ -15,12 +15,14 @@
 <%
 	
 	AnaunseoDao Ado = new AnaunseoDao();
-	Anaunseo Ana = new Anaunseo();
-	
+
 	ArrayList<Anaunseo> ArrayAna = Ado.SelectAnaunseoList();
 	
+
+		
+	
 	for(int i = 0; i<ArrayAna.size(); i++){
-		Ana = ArrayAna.get(i);
+		Anaunseo Ana = ArrayAna.get(i);
 		
 %>
 	
