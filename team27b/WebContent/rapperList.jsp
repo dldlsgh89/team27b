@@ -3,7 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ page import="services.RapperDao" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="services.Repper" %>
+<%@ page import="services.Rapper" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,23 +11,23 @@
 <title>Insert title here</title>
 </head>
 <body>
-	singerList.jsp<br>
+	rapperList.jsp<br>
 	
 	<table border="1">
 		<tr>
-		<th>singer_id</th><th>singer_name</th><th>singer_age</th>
+		<th>rapper_id</th><th>rapper_name</th><th>rapper_age</th>
 		</tr>
 		
 		<%
 		RapperDao rapperDao = new RapperDao();
-		ArrayList<Repper> list = rapperDao.selectRepperList();
+		ArrayList<Rapper> list = rapperDao.selectRapperList();
 		
-		for(Repper repper : list){
+		for(Rapper rapper : list){
 		%>
 			<tr>
-			<td><%= repper.getRepperId() %></td>
-			<td><%= repper.getRepperName() %></td>
-			<td><%= repper.getRepperAge() %></td>
+			<td><%= rapper.getRapperId() %></td>
+			<td><%= rapper.getRapperName() %></td>
+			<td><%= rapper.getRapperAge() %></td>
 			</tr>
 		<%
 		}

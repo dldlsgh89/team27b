@@ -11,12 +11,12 @@ import java.util.ArrayList;
 
 public class RapperDao {
 	
-	public ArrayList<Repper> selectRepperList() {
+	public ArrayList<Rapper> selectRapperList() {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
-		ArrayList<Repper> list = new ArrayList<Repper>();
+		ArrayList<Rapper> list = new ArrayList<Rapper>();
 		try {
 		
 			Class.forName("com.mysql.jdbc.Driver");
@@ -27,16 +27,16 @@ public class RapperDao {
 			
 			conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 			
-			pstmt = conn.prepareStatement("SELECT repper_id,repper_name,repper_age FROM repper");
+			pstmt = conn.prepareStatement("SELECT rapper_id,rapper_name,rapper_age FROM rapper");
 			
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				Repper repper = new Repper();
-				repper.setRepperId(rs.getInt("repper_id"));
-				repper.setRepperName(rs.getString("repper_name"));
-				repper.setRepperAge(rs.getInt("repper_age"));
-				list.add(repper);
+				Rapper rapper = new Rapper();
+				rapper.setRapperId(rs.getInt("repper_id"));
+				rapper.setRapperName(rs.getString("repper_name"));
+				rapper.setRapperAge(rs.getInt("repper_age"));
+				list.add(rapper);
 			}
 		}catch(SQLException ex) {
 			ex.getStackTrace();
