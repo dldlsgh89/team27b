@@ -55,7 +55,7 @@ public class ComedianDao {
 		
 	}
 	
-	public void insertComedian() {
+	public void insertComedian(Comedian com) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
@@ -69,11 +69,11 @@ public class ComedianDao {
 			String dbPass = "java0000";
 			conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 			
-			pstmt = conn.prepareStatement("insert into comedian values (0,'?','?') ");
+			pstmt = conn.prepareStatement("insert into comedian values (0, ?, ?)");
 			
-			pstmt.setString(1, "comedian_id");
-			pstmt.setString(2, "comedian_name");
-			pstmt.setString(3, "comedian_age");
+			
+			pstmt.setString(1, com.getComedianname());
+			pstmt.setInt(2, com.getComedianage());
 			
 			pstmt.executeUpdate();
 			

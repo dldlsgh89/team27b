@@ -47,7 +47,7 @@
 					<td><a href="<%= request.getContextPath() %>/index.jsp">홈화면</a></td>
 				</tr>
 				<tr>
-					<td><a href="<%= request.getContextPath() %>/index.jsp">코미디언추가</a></td>
+					<td><a href="<%= request.getContextPath() %>/comedianInsertForm.jsp">코미디언추가</a></td>
 				</tr>
 				<tr>
 					<td><a href="<%= request.getContextPath() %>/index.jsp">코미디언수정</a></td>

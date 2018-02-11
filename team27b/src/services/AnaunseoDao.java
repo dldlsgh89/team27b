@@ -58,5 +58,40 @@ public class AnaunseoDao {
 	
 	}
 	
+	public void insertAnaunseo(Anaunseo ana) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			
+			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
+			String dbUser = "root";
+			String dbPass = "java0000";
+			conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+			
+			pstmt = conn.prepareStatement("insert into anaunseo values (0, ?, ?)");
+			
+			
+			pstmt.setString(1, ana.getAnaunseoname());
+			pstmt.setInt(2, ana.getAnaunseoage());
+			
+			pstmt.executeUpdate();
+			
+			
+		}catch(ClassNotFoundException cnfex){
+			cnfex.printStackTrace();
+		}catch(SQLException sqle) {	
+			sqle.printStackTrace();
+		}finally {
+			if(pstmt != null) try {pstmt.close();} catch(SQLException sqle) {}
+			if(conn != null) try {conn.close();} catch(SQLException sqle) {}
+		}
+		
+		
+	}
+	
 
 }

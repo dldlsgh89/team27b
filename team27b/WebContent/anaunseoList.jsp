@@ -51,7 +51,7 @@
 					<td><a href="<%= request.getContextPath() %>/index.jsp">홈화면</a></td>
 				</tr>
 				<tr>
-					<td><a href="<%= request.getContextPath() %>/index.jsp">아나운서추가</a></td>
+					<td><a href="<%= request.getContextPath() %>/anaunseoInsertForm.jsp">아나운서추가</a></td>
 				</tr>
 				<tr>
 					<td><a href="<%= request.getContextPath() %>/index.jsp">아나운서수정</a></td>
