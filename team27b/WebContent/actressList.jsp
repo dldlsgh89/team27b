@@ -1,4 +1,7 @@
 <!-- 27기 B조 배건헤  -->
+<%@ page import = "services.Actress" %>
+<%@ page import = "services.ActressDao" %>
+<%@ page import = "java.util.ArrayList" %>
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
@@ -19,21 +22,22 @@
 						<th>아이디</th><th>이름</th><th>나이</th>
 						</tr>
 					</thead>
-<%-- <%
-		Actress	actress = new ActressDao();	
-		ArrayList<Actress> Array = Cdo.selectComedianList();		
-		for(Actress com : ArrayCom){
-	%>	
+ <%
+ 		ActressDao actressDao = new ActressDao();
+ 		ArrayList<Actress> arrayActress = actressDao.selectActressList();
+ 		for(int i = 0; i<arrayActress.size(); i++){
+ 			Actress actress = arrayActress.get(i);
+%>	
 		<tbody>
 			<tr>
-				<td><%= com.getComedianid() %></td>
-				<td><%= com.getComedianname() %></td>
-				<td><%= com.getComedianage() %></td>
+				<td><%= actress.getActressId() %></td>
+				<td><%= actress.getActressName()  %></td>
+				<td><%= actress.getActressAge() %></td>
 			</tr>
 		</tbody>	
 	<%
 		}
-	%> --%>
+	%> 
 			</table>
 		</div>
 		<div style="float:left;">
@@ -42,7 +46,7 @@
 					<td><a href="<%= request.getContextPath() %>/index.jsp">홈화면</a></td>
 				</tr>
 				<tr>
-					<td><a href="<%= request.getContextPath() %>/index.jsp">여배우추가</a></td>
+					<td><a href="<%= request.getContextPath() %>/actressInsertForm.jsp">여배우추가</a></td>
 				</tr>
 				<tr>
 					<td><a href="<%= request.getContextPath() %>/index.jsp">여배우수정</a></td>
