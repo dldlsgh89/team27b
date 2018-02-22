@@ -21,7 +21,11 @@
 			<table style="width: 100%;" border="1">
 				<thead>
 					<tr>
-					<th>아이디</th><th>이름</th><th>나이</th>
+					<th>아이디</th>
+					<th>이름</th>
+					<th>나이</th>
+					<th>수정</th>
+					<th>삭제</th>
 					</tr>
 				</thead>
 	<%
