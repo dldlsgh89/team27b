@@ -35,6 +35,7 @@ public class ActressDao {
 				arrayActress.add(actress);
 				}
 			}catch(ClassNotFoundException e) {
+				e.getMessage();
 				e.printStackTrace();
 			} catch(SQLException e) {
 				e.printStackTrace();
@@ -67,9 +68,9 @@ public class ActressDao {
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}finally { 
-			if (resultset != null) try { resultset.close(); } catch(SQLException ex) {} 
-			if (preparedstatement != null) try { preparedstatement.close(); } catch(SQLException ex) {} 
-			if (connection != null) try { connection.close(); } catch(SQLException ex) {} 
+			if (resultset != null) try { resultset.close(); } catch(SQLException e) {} 
+			if (preparedstatement != null) try { preparedstatement.close(); } catch(SQLException e) {} 
+			if (connection != null) try { connection.close(); } catch(SQLException e) {} 
 		}
 	}
 }

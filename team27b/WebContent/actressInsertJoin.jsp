@@ -4,7 +4,7 @@
 <%@ page import = "services.ActressDao" %>
 <!DOCTYPE html>
 <% 
-request.setCharacterEncoding("euc-kr");
+request.setCharacterEncoding("euckr");
 String actressName = request.getParameter("actress_name");
 String actressAge = request.getParameter("actress_age");
 
