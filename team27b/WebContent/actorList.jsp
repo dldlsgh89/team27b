@@ -1,6 +1,5 @@
 <!-- 27기 B조 배건혜  -->
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ page import="services.ActorDao"%>
 <%@ page import="services.Actor"%>
 <%@ page import="java.util.ArrayList"%>
@@ -29,8 +28,8 @@
 				<%
 					ActorDao actorDao = new ActorDao();
 					ArrayList<Actor> arrayActor = actorDao.selectActorList();
-					for (int i = 0; i < arrayActor.size(); i++) {
-						Actor actor = arrayActor.get(i);
+					for (Actor actor : arrayActor) {
+						
 				%>
 				<tbody>
 					<tr>
@@ -56,12 +55,6 @@
 				<tr>
 					<td><a
 						href="<%=request.getContextPath()%>/actorInsertForm.jsp">남배우추가</a></td>
-				</tr>
-				<tr>
-					<td><a href="<%=request.getContextPath()%>/index.jsp">남배우수정</a></td>
-				</tr>
-				<tr>
-					<td><a href="<%=request.getContextPath()%>/index.jsp">남배우삭제</a></td>
 				</tr>
 			</table>
 		</div>

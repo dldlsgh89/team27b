@@ -2,30 +2,27 @@
 package services;
 
 public class Actor {
-	private int ActorId;
-	private String ActorName;
-	private int ActorAge;
+	private int actorId;
+	private String actorName;
+	private int actorAge;
+	
 	public int getActorId() {
-		return ActorId;
+		return actorId;
 	}
 	public void setActorId(int actorId) {
-		ActorId = actorId;
+		this.actorId = actorId;
 	}
 	public String getActorName() {
-		return ActorName;
+		return actorName;
 	}
 	public void setActorName(String actorName) {
-		ActorName = actorName;
+		this.actorName = actorName;
 	}
 	public int getActorAge() {
-		return ActorAge;
+		return actorAge;
 	}
 	public void setActorAge(int actorAge) {
-		ActorAge = actorAge;
-	}
-	@Override
-	public String toString() {
-		return "Actor [ActorId=" + ActorId + ", ActorName=" + ActorName + ", ActorAge=" + ActorAge + "]";
+		this.actorAge = actorAge;
 	}
 	
 	

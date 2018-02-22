@@ -12,7 +12,7 @@
 	</div>
 
 	<form action="<%=request.getContextPath()%>/actressInsertJoin.jsp" method= "post">
-		<table border="1">
+		<table style="margin: 0 auto; border="1">
 			<thead>
 
 				<tr>
