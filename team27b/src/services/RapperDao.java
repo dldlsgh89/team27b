@@ -22,7 +22,7 @@ public class RapperDao {
 			// 드라이버 로딩
 			Class.forName("com.mysql.jdbc.Driver");
 			// DB연결관련 변수에 ip주소,포트번호,db명,dbid,dbpw값들을 담는다
-			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
+			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&charaterEncoding=euckr";
 			String dbUser = "root";
 			String dbPass = "java0000";
 			

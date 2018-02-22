@@ -11,7 +11,7 @@
 </head>
 <body>
 	<%
-	request.setCharacterEncoding("euckr");
+	request.setCharacterEncoding("EUC-KR");
 	String rapperName = request.getParameter("rapper_name");
 	String rapperAge = request.getParameter("rapper_age");
 	
