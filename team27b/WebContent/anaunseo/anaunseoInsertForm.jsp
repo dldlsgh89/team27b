@@ -9,7 +9,7 @@
 	<div>
 		<h1 style="text-align: center;">아나운서 가입양식</h1>
 	</div>
-		<form action = "<%= request.getContextPath() %>/anaunseoInsertJoin.jsp" method = "post">
+		<form action = "<%= request.getContextPath() %>/anaunseo/anaunseoInsertAction.jsp" method = "post">
 			<table border="1">
 				<thead>					
 					<tr>

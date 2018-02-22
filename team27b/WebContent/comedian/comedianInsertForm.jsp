@@ -9,7 +9,7 @@
 	<div>
 		<h1 style="text-align: center;">코미디언 가입양식</h1>
 	</div>
-	<form action = "<%= request.getContextPath() %>/comedianInsertJoin.jsp" method = "post">
+	<form action = "<%= request.getContextPath() %>/comedian/comedianInsertAction.jsp" method = "post">
 		<table style="margin: 0 auto;" border="1">
 			<thead>						
 				<tr>

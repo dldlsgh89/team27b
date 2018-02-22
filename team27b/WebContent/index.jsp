@@ -12,18 +12,18 @@
 	<ul>
 		<img src="<%= request.getContextPath() %>/image/Lee.jpg" width="" height=""/>
 		<br>이인호			<!-- 프로젝트 팀이름  경로-->
-		<li><a href="<%= request.getContextPath() %>/anaunseoList.jsp">Anaunseo</a></li>
-		<li><a href="<%= request.getContextPath() %>/comedianList.jsp">Comedian</a></li>
+		<li><a href="<%= request.getContextPath() %>/anaunseo/anaunseoList.jsp">Anaunseo</a></li>
+		<li><a href="<%= request.getContextPath() %>/comedian/comedianList.jsp">Comedian</a></li>
 		
 		<img src="<%= request.getContextPath() %>/image/bae.jpg" width="150px" height="200px"/>
 		<br>배건혜
-		<li><a href="<%= request.getContextPath() %>/actorList.jsp">Actor</a></li>
-		<li><a href="<%= request.getContextPath() %>/actressList.jsp">Actress</a></li>
+		<li><a href="<%= request.getContextPath() %>/actor/actorList.jsp">Actor</a></li>
+		<li><a href="<%= request.getContextPath() %>/actress/actressList.jsp">Actress</a></li>
 		        
 		<img src="<%= request.getContextPath() %>/image/na.jpg" width="" height=""/>
 		<br>나성수
-		<li><a href="<%= request.getContextPath() %>/rapperList.jsp">rapper</a></li>
-		<li><a href="<%= request.getContextPath() %>/singerList.jsp">singer</a></li>
+		<li><a href="<%= request.getContextPath() %>/rapper/rapperList.jsp">rapper</a></li>
+		<li><a href="<%= request.getContextPath() %>/singer/singerList.jsp">singer</a></li>
 	</ul>
 
 

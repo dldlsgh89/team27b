@@ -8,5 +8,5 @@
 	ComedianDao adao = new ComedianDao();
 	adao.deleteComedianList(ComedianId);
 	
-	response.sendRedirect(request.getContextPath()+"/comedianList.jsp");
+	response.sendRedirect(request.getContextPath()+"/comedian/comedianList.jsp");
 %>

@@ -38,8 +38,8 @@
 				<td><%= com.getComedianId() %></td>
 				<td><%= com.getComedianName() %></td>
 				<td><%= com.getComedianAge() %></td>
-				<td><a href="<%= request.getContextPath() %>/anaunseoUpdateForm.jsp?AnaunseoId=<%=com.getComedianId()%>">코미디언수정</a></td>
-				<td><a href="<%= request.getContextPath() %>/comedianDeleteAction.jsp?ComedianId=<%=com.getComedianId()%>">코미디언삭제</a></td>	
+				<td><a href="<%= request.getContextPath() %>/comedian/anaunseoUpdateForm.jsp?AnaunseoId=<%=com.getComedianId()%>">코미디언수정</a></td>
+				<td><a href="<%= request.getContextPath() %>/comedian/comedianDeleteAction.jsp?ComedianId=<%=com.getComedianId()%>">코미디언삭제</a></td>	
 			</tr>
 		</tbody>	
 	<%
@@ -53,7 +53,7 @@
 					<td><a href="<%= request.getContextPath() %>/index.jsp">홈화면</a></td>
 				</tr>
 				<tr>
-					<td><a href="<%= request.getContextPath() %>/comedianInsertForm.jsp">코미디언추가</a></td>
+					<td><a href="<%= request.getContextPath() %>/comedian/comedianInsertForm.jsp">코미디언추가</a></td>
 				</tr>				
 			</table>
 		</div>
