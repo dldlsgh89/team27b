@@ -13,8 +13,8 @@
 <body>
 	<h1 style="text-align: center;">랩퍼 정보 목록</h1>
 	<hr>
-	<div style="width: 100%;">
-		<span style="width: 90%; float: left;">
+	<div>
+		<div style="width: 90%; float: left;">
 			<table style="width: 100%;" border="1">
 				<thead>
 					<tr>
@@ -36,23 +36,23 @@
 							<td><%= rapper.getRapperId() %></td>
 							<td><%= rapper.getRapperName() %></td>
 							<td><%= rapper.getRapperAge() %></td>
-							<td><a href="<%=request.getContextPath()%>/rapperUpdateForm.jsp?RapperId=<%=rapper.getRapperId()%>">수정</a></td>
-							<td><a href="<%=request.getContextPath()%>/rapperDeleteAction.jsp?RapperId=<%=rapper.getRapperId()%>">삭제</a></td>
+							<td><a href="<%=request.getContextPath()%>/rapperUpdateForm.jsp?RapperId=<%=rapper.getRapperId()%>" style="text-decoration: none;">수정</a></td>
+							<td><a href="<%=request.getContextPath()%>/rapperDeleteAction.jsp?RapperId=<%=rapper.getRapperId()%>" style="text-decoration: none;">삭제</a></td>
 						</tr>
 					<%
 					}
 					%>
 				</tbody>
 			</table>
-		</span>
-		<span>
-			<div>
-				<a href="<%= request.getContextPath() %>/index.jsp">홈화면</a>
+		</div>
+		<div style="width: 10%; float: right;">
+			<div style="padding: 0 33% 0 33%;">
+				<a href="<%= request.getContextPath() %>/index.jsp" style="text-decoration: none;">홈화면</a>
 			</div>
-			<div>
-				<a href="<%= request.getContextPath() %>/rapperInsertForm.jsp">랩퍼추가</a>
+			<div style="padding: 0 28% 0 28%;">
+				<a href="<%= request.getContextPath() %>/rapperInsertForm.jsp" style="text-decoration: none;">랩퍼추가</a>
 			</div>
-		</span>
+		</div>
 	</div>
 </body>
 </html>
