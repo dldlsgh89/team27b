@@ -10,7 +10,7 @@
 <body>
 	<h1 style="text-align: center;">가수 가입양식</h1>
 	<hr>
-	<form action = "<%= request.getContextPath() %>/singerInsertJoin.jsp" method = "post">
+	<form action = "<%= request.getContextPath() %>/singer/singerInsertAction.jsp" method = "post">
 		<table border="1" style="margin: 0 auto;">
 			<tbody>
 				<tr>

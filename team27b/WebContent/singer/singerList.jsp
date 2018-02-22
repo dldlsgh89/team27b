@@ -20,7 +20,7 @@
 			<a href="<%= request.getContextPath() %>/index.jsp" style="text-decoration: none;">홈화면</a>
 		</span>
 		<span style="padding: 0 1% 0 1%;">
-			<a href="<%= request.getContextPath() %>/singerInsertForm.jsp" style="text-decoration: none;">가수추가</a>
+			<a href="<%= request.getContextPath() %>/singer/singerInsertForm.jsp" style="text-decoration: none;">가수추가</a>
 		</span>
 	</div>
 	<hr>
@@ -48,8 +48,8 @@
 						<td><%= singer.getSingerId() %></td>
 						<td><%= singer.getSingerName() %></td>
 						<td><%= singer.getSingerAge() %></td>
-						<td><a href="<%=request.getContextPath() %>/singerUpdateForm.jsp?SingerId=<%=singer.getSingerId()%>" style="text-decoration: none;">수정</a></td>
-						<td><a href="<%=request.getContextPath() %>/singerDeleteAction.jsp?SingerId=<%=singer.getSingerId()%>" style="text-decoration: none;">삭제</a></td>
+						<td><a href="<%=request.getContextPath() %>/singer/singerUpdateForm.jsp?SingerId=<%=singer.getSingerId()%>" style="text-decoration: none;">수정</a></td>
+						<td><a href="<%=request.getContextPath() %>/singer/singerDeleteAction.jsp?SingerId=<%=singer.getSingerId()%>" style="text-decoration: none;">삭제</a></td>
 					</tr>
 				<%
 				}

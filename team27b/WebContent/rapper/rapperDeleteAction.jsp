@@ -15,7 +15,7 @@
 	RapperDao rapperDao = new RapperDao();
 	rapperDao.deleteRapper(rapperId);
 	
-	response.sendRedirect(request.getContextPath()+"/rapperList.jsp");
+	response.sendRedirect(request.getContextPath()+"/rapper/rapperList.jsp");
 	%>
 </body>
 </html>

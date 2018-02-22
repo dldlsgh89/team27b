@@ -108,4 +108,10 @@ public class RapperDao {
 			if (connection != null) try { connection.close(); } catch(SQLException ex) {} 
 		}
 	}
+	
+	public Rapper updateFormRapper() {
+		
+		
+		return null;
+	}
 }
