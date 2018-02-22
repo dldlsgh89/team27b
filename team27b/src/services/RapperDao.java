@@ -13,9 +13,9 @@ public class RapperDao {
 	// selectRapperList메서드 선언
 	public ArrayList<Rapper> selectRapperList() {
 		// jdbc관련 참조변수를 선언한다
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
 		//Rapper 배열을 만든다
 		ArrayList<Rapper> list = new ArrayList<Rapper>();
 		try {
@@ -26,17 +26,17 @@ public class RapperDao {
 			String dbUser = "root";
 			String dbPass = "java0000";
 			
-			conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+			connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 			
-			pstmt = conn.prepareStatement("SELECT rapper_id,rapper_name,rapper_age FROM rapper");
+			preparedStatement = connection.prepareStatement("SELECT rapper_id,rapper_name,rapper_age FROM rapper");
 			
-			rs = pstmt.executeQuery();
+			resultSet = preparedStatement.executeQuery();
 			
-			while(rs.next()) {
+			while(resultSet.next()) {
 				Rapper rapper = new Rapper();
-				rapper.setRapperId(rs.getInt("rapper_id"));
-				rapper.setRapperName(rs.getString("rapper_name"));
-				rapper.setRapperAge(rs.getInt("rapper_age"));
+				rapper.setRapperId(resultSet.getInt("rapper_id"));
+				rapper.setRapperName(resultSet.getString("rapper_name"));
+				rapper.setRapperAge(resultSet.getInt("rapper_age"));
 				list.add(rapper);
 			}
 		}catch(SQLException ex) {
@@ -46,9 +46,9 @@ public class RapperDao {
 			e.printStackTrace();
 			System.out.println(e.getMessage());
 		}finally {
-			if(rs == null) try {rs.close();}catch(SQLException ex){}
-			if(pstmt == null) try {rs.close();}catch(SQLException ex){}
-			if(conn == null) try {rs.close();}catch(SQLException ex){}
+			if(resultSet == null) try {resultSet.close();}catch(SQLException ex){}
+			if(preparedStatement == null) try {resultSet.close();}catch(SQLException ex){}
+			if(connection == null) try {resultSet.close();}catch(SQLException ex){}
 		}
 		
 		return list;
@@ -56,7 +56,7 @@ public class RapperDao {
 	
 	public void insertRapper(Rapper rapper) {
 		Connection connection = null;
-		PreparedStatement preparedstatement = null;
+		PreparedStatement preparedStatement = null;
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -65,26 +65,26 @@ public class RapperDao {
 			String dbPass = "java0000";
 			
 			connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
-			preparedstatement = connection.prepareStatement("insert into rapper values (0, ?, ?)");
+			preparedStatement = connection.prepareStatement("insert into rapper values (0, ?, ?)");
 			
-			preparedstatement.setString(1, rapper.getRapperName());
-			preparedstatement.setInt(2, rapper.getRapperAge());
+			preparedStatement.setString(1, rapper.getRapperName());
+			preparedStatement.setInt(2, rapper.getRapperAge());
 			
-			preparedstatement.executeUpdate();
+			preparedStatement.executeUpdate();
 			
 		}catch(ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}finally {
-			if (preparedstatement != null) try { preparedstatement.close(); } catch(SQLException ex) {} 
+			if (preparedStatement != null) try { preparedStatement.close(); } catch(SQLException ex) {} 
 			if (connection != null) try { connection.close(); } catch(SQLException ex) {} 
 		}
 	}
 	
 	public void deleteRapper(int rapperId) {
 		Connection connection = null;
-		PreparedStatement preparedstatement = null;
+		PreparedStatement preparedStatement = null;
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -93,25 +93,85 @@ public class RapperDao {
 			String dbPass = "java0000";
 			
 			connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
-			preparedstatement = connection.prepareStatement("DELETE FROM rapper WHERE rapper_id=?");
+			preparedStatement = connection.prepareStatement("DELETE FROM rapper WHERE rapper_id=?");
 			
-			preparedstatement.setInt(1, rapperId);			
+			preparedStatement.setInt(1, rapperId);			
 			
-			preparedstatement.executeUpdate();
+			preparedStatement.executeUpdate();
 			
 		}catch(ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}finally {
-			if (preparedstatement != null) try { preparedstatement.close(); } catch(SQLException ex) {} 
+			if (preparedStatement != null) try { preparedStatement.close(); } catch(SQLException ex) {} 
 			if (connection != null) try { connection.close(); } catch(SQLException ex) {} 
 		}
 	}
 	
-	public Rapper updateFormRapper() {
+	public Rapper updateFormRapper(int rapperId) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultset = null;
+		Rapper rapper = new Rapper();
 		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
+			String dbUser = "root";
+			String dbPass = "java0000";
+			connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+			
+			preparedStatement = connection.prepareStatement("SELECT rapper_id,rapper_name,rapper_age FROM rapper WHERE rapper_id=?");
+			preparedStatement.setInt(1, rapperId);
+			
+			resultset = preparedStatement.executeQuery();
+			
+			if(resultset.next()) {
+				rapper.setRapperId(resultset.getInt("rapper_id"));
+				rapper.setRapperName(resultset.getString("rapper_name"));
+				rapper.setRapperAge(resultset.getInt("rapper_age"));
+			}
+			
+		}catch(ClassNotFoundException cnfe){
+			cnfe.getMessage();
+		}catch(SQLException sqle) {	
+			sqle.printStackTrace();
+		}finally {
+			if(resultset != null) try{resultset.close();} catch(SQLException sqle) {}
+			if(preparedStatement != null) try{preparedStatement.close();} catch(SQLException sqle) {}
+			if(connection != null) try{connection.close();}  catch(SQLException sqle) {}
+		}
 		
-		return null;
+		return rapper;
+	}
+	
+	public void updateActionRapper(Rapper rapper) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
+			String dbUser = "root";
+			String dbPass = "java0000";
+			connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+			
+			preparedStatement = connection.prepareStatement("UPDATE rapper SET rapper_name=?, rapper_age=? WHERE rapper_id=?");
+			preparedStatement.setString(1, rapper.getRapperName());
+			preparedStatement.setInt(2, rapper.getRapperAge());
+			preparedStatement.setInt(3, rapper.getRapperId());
+			
+			preparedStatement.executeUpdate();
+			
+		}catch(ClassNotFoundException cnfe){
+			cnfe.getMessage();
+		}catch(SQLException sqle) {	
+			sqle.printStackTrace();
+		}finally {
+			if(preparedStatement != null) try{preparedStatement.close();} catch(SQLException sqle) {}
+			if(connection != null) try{connection.close();}  catch(SQLException sqle) {}
+		}
+			
 	}
 }

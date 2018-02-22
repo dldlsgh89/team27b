@@ -13,11 +13,11 @@
 	<%
 	request.setCharacterEncoding("EUC-KR");
 	String singerName = request.getParameter("singer_name");
-	String singerAge = request.getParameter("singer_age");
+	int singerAge = Integer.parseInt(request.getParameter("singer_age"));
 
 	Singer singer = new Singer();
 	singer.setSingerName(singerName);
-	singer.setSingerAge(Integer.parseInt(singerAge));
+	singer.setSingerAge(singerAge);
 	
 	SingerDao singerDao = new SingerDao();
 	singerDao.insertSinger(singer);

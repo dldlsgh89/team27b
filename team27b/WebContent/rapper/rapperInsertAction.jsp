@@ -13,11 +13,11 @@
 	<%
 	request.setCharacterEncoding("EUC-KR");
 	String rapperName = request.getParameter("rapper_name");
-	String rapperAge = request.getParameter("rapper_age");
+	int rapperAge = Integer.parseInt(request.getParameter("rapper_age"));
 	
 	Rapper rapper = new Rapper();
 	rapper.setRapperName(rapperName);
-	rapper.setRapperAge(Integer.parseInt(rapperAge));
+	rapper.setRapperAge(rapperAge);
 	
 	RapperDao rapperDao = new RapperDao();
 	rapperDao.insertRapper(rapper);
