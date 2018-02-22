@@ -31,7 +31,7 @@ public class ActressDao {
 				Actress actress = new Actress();
 				actress.setActressId(Integer.parseInt( resultset.getString("actress_id")));
 				actress.setActressName(resultset.getString("actress_name"));
-				actress.setActressAge(resultset.getInt("actressr_age"));
+				actress.setActressAge(resultset.getInt("actress_age"));
 				arrayActress.add(actress);
 				}
 			}catch(ClassNotFoundException e) {

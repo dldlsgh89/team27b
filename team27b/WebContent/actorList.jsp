@@ -1,5 +1,5 @@
 <!-- 27±â BÁ¶ ¹è°ÇÇý  -->
-<%@ page language="java" contentType="text/html; charset=EUC-KR"pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ page import="services.ActorDao" %>
 <%@ page import="services.Actor" %>
 <%@ page import="java.util.ArrayList"%>
