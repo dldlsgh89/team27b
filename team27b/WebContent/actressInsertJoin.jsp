@@ -18,6 +18,3 @@ actressdao.insertActress(actress);
 response.sendRedirect(request.getContextPath()+"/actressList.jsp");
 %>
 
-<script>
-	Location.href="actressList.jsp";
-</script>

@@ -18,6 +18,3 @@ actordao.insertActor(actor);
 response.sendRedirect(request.getContextPath()+"/actorList.jsp");
 %>
 
-<script>
-	Location.href="actorList.jsp";
-</script>
