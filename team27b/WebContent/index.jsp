@@ -17,8 +17,8 @@
 		
 		<img src="<%= request.getContextPath() %>/image/bae.jpg" width="150px" height="200px"/>
 		<br>배건혜
-		<li><a href="<%= request.getContextPath() %>/actorList.jsp">actor</a></li>
-		<li><a href="<%= request.getContextPath() %>/actressList.jsp">actress</a></li>
+		<li><a href="<%= request.getContextPath() %>/actorList.jsp">Actor</a></li>
+		<li><a href="<%= request.getContextPath() %>/actressList.jsp">Actress</a></li>
 		        
 		<img src="<%= request.getContextPath() %>/image/na.jpg" width="" height=""/>
 		<br>나성수
