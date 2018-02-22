@@ -37,9 +37,9 @@
 						<td><%=actor.getActorName()%></td>
 						<td><%=actor.getActorAge()%></td>
 						<td><a
-							href="<%=request.getContextPath()%>/actorUpdateForm.jsp?ActorId=<%=actor.getActorId()%>">수정</a></td>
+							href="<%=request.getContextPath()%>/actor/actorUpdateForm.jsp?ActorId=<%=actor.getActorId()%>">수정</a></td>
 						<td><a
-							href="<%=request.getContextPath()%>/actorDeleteAction.jsp?ActorId=<%=actor.getActorId()%>">삭제</a></td>
+							href="<%=request.getContextPath()%>/actor/actorDeleteAction.jsp?ActorId=<%=actor.getActorId()%>">삭제</a></td>
 					</tr>
 				</tbody>
 				<%
@@ -54,7 +54,7 @@
 				</tr>
 				<tr>
 					<td><a
-						href="<%=request.getContextPath()%>/actorInsertForm.jsp">남배우추가</a></td>
+						href="<%=request.getContextPath()%>/actor/actorInsertForm.jsp">남배우추가</a></td>
 				</tr>
 			</table>
 		</div>

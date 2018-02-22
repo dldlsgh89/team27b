@@ -11,7 +11,7 @@
 		<h1 style="text-align: center;">남배우 가입양식</h1>
 </div>
 
-			<form action = "<%= request.getContextPath() %>/actorInsertJoin.jsp" method = "post">
+			<form action = "<%= request.getContextPath() %>/actor/actorInsertAction.jsp" method = "post">
 				<table style="margin: 0 auto; border="1">
 					<thead>
 						

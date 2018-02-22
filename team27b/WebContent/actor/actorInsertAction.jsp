@@ -15,6 +15,6 @@ actor.setActorAge(Integer.parseInt(actorAge));
 ActorDao actordao = new ActorDao();
 actordao.insertActor(actor);
 
-response.sendRedirect(request.getContextPath()+"/actorList.jsp");
+response.sendRedirect(request.getContextPath()+"/actor/actorList.jsp");
 %>
 

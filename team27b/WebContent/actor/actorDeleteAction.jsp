@@ -11,7 +11,7 @@
 		int ActorId = Integer.parseInt(request.getParameter("ActorId"));
 		ActorDao actorDao = new ActorDao();
 		actorDao.deleteActor(ActorId);
-		response.sendRedirect(request.getContextPath() + "/actorList.jsp");
+		response.sendRedirect(request.getContextPath() + "/actor/actorList.jsp");
 	%>
 </body>
 </html>
