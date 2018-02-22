@@ -13,6 +13,31 @@ import services.Anaunseo;
 
 public class AnaunseoDao {
 	
+	public void deleteAnaunseoList(int AnaunseoId){
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+				String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
+				String dbUser = "root";
+				String dbPass = "java0000";
+				conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+				
+				pstmt = conn.prepareStatement("delete from anaunseo where anaunseo_id = ?");
+				pstmt.setInt(1, AnaunseoId);
+				
+				pstmt.executeUpdate();
+			}catch(SQLException ex){
+				ex.printStackTrace();
+			}catch(ClassNotFoundException cnfe){
+				cnfe.printStackTrace();
+			}finally{
+				if(pstmt != null) try {pstmt.close();} catch(SQLException ex) {}
+				if(conn != null) try {conn.close();} catch(SQLException ex) {}
+			}
+	}
+	
+	
 	public ArrayList<Anaunseo> selectAnaunseoList() {
 		ArrayList<Anaunseo> ArrayAna = new ArrayList<Anaunseo>();
 		Connection conn = null;
@@ -37,9 +62,9 @@ public class AnaunseoDao {
 //select 쿼리문장으로 검색된 각 컬럼값들을 받아 anaunseo클래스 타입의 어레이리스트 객체를 만들어 참조값을 담은 ana Dto에 셋팅한다?
 			while(rs.next()) {									
 			Anaunseo ana = new Anaunseo();
-			   ana.setAnaunseoid(rs.getInt("anaunseo_id"));
-			   ana.setAnaunseoname(rs.getString("anaunseo_name"));
-			   ana.setAnaunseoage(rs.getInt("anaunseo_age"));	
+			   ana.setAnaunseoId(rs.getInt("anaunseo_id"));
+			   ana.setAnaunseoName(rs.getString("anaunseo_name"));
+			   ana.setAnaunseoAge(rs.getInt("anaunseo_age"));	
 			   ArrayAna.add(ana);
 			}			
 		}catch(SQLException sqlex){
@@ -75,8 +100,8 @@ public class AnaunseoDao {
 			pstmt = conn.prepareStatement("insert into anaunseo values (0, ?, ?)");
 			
 			
-			pstmt.setString(1, ana.getAnaunseoname());
-			pstmt.setInt(2, ana.getAnaunseoage());
+			pstmt.setString(1, ana.getAnaunseoName());
+			pstmt.setInt(2, ana.getAnaunseoAge());
 			
 			pstmt.executeUpdate();
 			

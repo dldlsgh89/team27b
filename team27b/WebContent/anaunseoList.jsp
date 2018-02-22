@@ -21,7 +21,11 @@
 			<table style="width: 100%;" border="1">
 				<thead>
 					<tr>
-					<th>아이디</th><th>이름</th><th>나이</th>
+						<th>아이디</th>
+						<th>이름</th>
+						<th>나이</th>
+						<th>수정</th>
+						<th>삭제</th>
 					</tr>
 				</thead>	
 		<!-- 테이블 윗부분에서 각 칼럼위치의 제목을 먼저 잡아준다 -->
@@ -35,11 +39,12 @@
 	%>
 			<tbody>	
 				<tr>
-					<td><%= Ana.getAnaunseoid()%></td>
-					<td><%= Ana.getAnaunseoname()%></td>
-					<td><%= Ana.getAnaunseoage()%></td>				
-				</tr>
-			</tbody>						
+					<td><%= Ana.getAnaunseoId()%></td>
+					<td><%= Ana.getAnaunseoName()%></td>
+					<td><%= Ana.getAnaunseoAge()%></td>	
+					<td><a href="<%= request.getContextPath() %>/anaunseoUpdateForm.jsp?AnaunseoId=<%=Ana.getAnaunseoId()%>">아나운서수정</a></td>
+					<td><a href="<%= request.getContextPath() %>/anaunseoDeleteAction.jsp?AnaunseoId=<%=Ana.getAnaunseoId()%>">아나운서삭제</a></td>		
+				</tr>									
 	<%
 			}
 	%>
@@ -52,14 +57,9 @@
 				</tr>
 				<tr>
 					<td><a href="<%= request.getContextPath() %>/anaunseoInsertForm.jsp">아나운서추가</a></td>
-				</tr>
-				<tr>
-					<td><a href="<%= request.getContextPath() %>/index.jsp">아나운서수정</a></td>
-				</tr>
-				<tr>
-					<td><a href="<%= request.getContextPath() %>/index.jsp">아나운서삭제</a></td>
-				</tr>
+				</tr>				
 			</table>
+			</tbody>
 		</div>
 		</div>
 </body>

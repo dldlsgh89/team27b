@@ -4,13 +4,13 @@
 <!DOCTYPE html>
 <%
 	request.setCharacterEncoding("euckr");
-    String anaunseoname = request.getParameter("anaunseo_name");  
-	String anaunseoage = request.getParameter("anaunseo_age");  
+    String anaunseoName = request.getParameter("anaunseo_name");  
+	String anaunseoAge = request.getParameter("anaunseo_age");  
 	
 	Anaunseo ana = new Anaunseo();
 	
-	ana.setAnaunseoname(anaunseoname);
-	ana.setAnaunseoage(Integer.parseInt(anaunseoage));
+	ana.setAnaunseoName(anaunseoName);
+	ana.setAnaunseoAge(Integer.parseInt(anaunseoAge));
 	
 	AnaunseoDao	Ado = new AnaunseoDao();
 	Ado.insertAnaunseo(ana);

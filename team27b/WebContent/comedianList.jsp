@@ -31,9 +31,11 @@
 	%>	
 		<tbody>
 			<tr>
-				<td><%= com.getComedianid() %></td>
-				<td><%= com.getComedianname() %></td>
-				<td><%= com.getComedianage() %></td>
+				<td><%= com.getComedianId() %></td>
+				<td><%= com.getComedianName() %></td>
+				<td><%= com.getComedianAge() %></td>
+				<td><a href="<%= request.getContextPath() %>/anaunseoUpdateForm.jsp?AnaunseoId=<%=com.getComedianId()%>">코미디언수정</a></td>
+				<td><a href="<%= request.getContextPath() %>/comedianDeleteAction.jsp?ComedianId=<%=com.getComedianId()%>">코미디언삭제</a></td>	
 			</tr>
 		</tbody>	
 	<%
@@ -48,13 +50,7 @@
 				</tr>
 				<tr>
 					<td><a href="<%= request.getContextPath() %>/comedianInsertForm.jsp">코미디언추가</a></td>
-				</tr>
-				<tr>
-					<td><a href="<%= request.getContextPath() %>/index.jsp">코미디언수정</a></td>
-				</tr>
-				<tr>
-					<td><a href="<%= request.getContextPath() %>/index.jsp">코미디언삭제</a></td>
-				</tr>
+				</tr>				
 			</table>
 		</div>
 	</div>

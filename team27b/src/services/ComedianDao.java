@@ -12,6 +12,30 @@ import java.util.ArrayList;
 import org.apache.catalina.connector.Request;
 
 public class ComedianDao {
+	
+	public void deleteComedianList(int ComedianId){
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+				String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
+				String dbUser = "root";
+				String dbPass = "java0000";
+				conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+				
+				pstmt = conn.prepareStatement("delete from comedian where comedian_id = ?");
+				pstmt.setInt(1, ComedianId);
+				
+				pstmt.executeUpdate();
+			}catch(SQLException ex){
+				ex.printStackTrace();
+			}catch(ClassNotFoundException cnfe){
+				cnfe.printStackTrace();
+			}finally{
+				if(pstmt != null) try {pstmt.close();} catch(SQLException ex) {}
+				if(conn != null) try {conn.close();} catch(SQLException ex) {}
+			}
+	}
 
 	public ArrayList<Comedian> selectComedianList(){
 		ArrayList<Comedian> ArrayCom = new ArrayList<Comedian>();
@@ -33,9 +57,9 @@ public class ComedianDao {
 			
 			while(rs.next()) {
 				Comedian com = new Comedian();
-				com.setComedianid(Integer.parseInt(rs.getString("comedian_id")));
-				com.setComedianname(rs.getString("comedian_name"));
-				com.setComedianage(rs.getInt("comedian_age"));
+				com.setComedianId(Integer.parseInt(rs.getString("comedian_id")));
+				com.setComedianName(rs.getString("comedian_name"));
+				com.setComedianAge(rs.getInt("comedian_age"));
 				
 				ArrayCom.add(com);
 			}
@@ -72,8 +96,8 @@ public class ComedianDao {
 			pstmt = conn.prepareStatement("insert into comedian values (0, ?, ?)");
 			
 			
-			pstmt.setString(1, com.getComedianname());
-			pstmt.setInt(2, com.getComedianage());
+			pstmt.setString(1, com.getComedianName());
+			pstmt.setInt(2, com.getComedianAge());
 			
 			pstmt.executeUpdate();
 			

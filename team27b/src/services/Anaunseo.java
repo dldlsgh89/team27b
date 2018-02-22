@@ -4,34 +4,33 @@ package services;
 
 public class Anaunseo {
 
-	private int anaunseoid;  
-	private String anaunseoname;
-	private int anaunseoage;
+	private int anaunseoId;  
+	private String anaunseoName;
+	private int anaunseoAge;
 	
-	public int getAnaunseoid() {
-		return anaunseoid;
+	public int getAnaunseoId() {
+		return anaunseoId;
 	}
-	public void setAnaunseoid(int anaunseo_id) {
-		this.anaunseoid = anaunseo_id;
+	public void setAnaunseoId(int anaunseoId) {
+		this.anaunseoId = anaunseoId;
 	}
-	public String getAnaunseoname() {
-		return anaunseoname;
+	public String getAnaunseoName() {
+		return anaunseoName;
 	}
-	public void setAnaunseoname(String anaunseo_name) {
-		this.anaunseoname = anaunseo_name;
+	public void setAnaunseoName(String anaunseoName) {
+		this.anaunseoName = anaunseoName;
 	}
-	public int getAnaunseoage() {
-		return anaunseoage;
+	public int getAnaunseoAge() {
+		return anaunseoAge;
 	}
-	public void setAnaunseoage(int anaunseo_age) {
-		this.anaunseoage = anaunseo_age;
+	public void setAnaunseoAge(int anaunseoAge) {
+		this.anaunseoAge = anaunseoAge;
 	}
-	@Override //아직 뭔소리인지를 모르겠지만 단위테스트할때 사용한다더라~
+	@Override
 	public String toString() {
-		return "Anaunseo [anaunseoid=" + anaunseoid + ", anaunseoname=" + anaunseoname + ", anaunseoage=" + anaunseoage
+		return "Anaunseo [anaunseoId=" + anaunseoId + ", anaunseoName=" + anaunseoName + ", anaunseoAge=" + anaunseoAge
 				+ "]";
 	}
-	
 	
 	
 	

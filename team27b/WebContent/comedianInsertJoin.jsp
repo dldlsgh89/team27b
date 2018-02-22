@@ -4,13 +4,13 @@
 <!DOCTYPE html>
 <%
 	request.setCharacterEncoding("euckr");
-    String comedianname = request.getParameter("comedian_name");  
-	String comedianage = request.getParameter("comedian_age");  
+    String comedianName = request.getParameter("comedian_name");  
+	String comedianAge = request.getParameter("comedian_age");  
 
 	Comedian com = new Comedian();
 	
-	com.setComedianname(comedianname);
-	com.setComedianage(Integer.parseInt(comedianage));
+	com.setComedianName(comedianName);
+	com.setComedianAge(Integer.parseInt(comedianAge));
 	
 	ComedianDao	Cdo = new ComedianDao();
 	Cdo.insertComedian(com);

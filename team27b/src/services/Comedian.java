@@ -4,31 +4,30 @@ package services;
 
 public class Comedian {
 	
-	private int comedianid;  
-	private String comedianname;
-	private int comedianage;
-	
-	public int getComedianid() {
-		return comedianid;
+	private int comedianId;  
+	private String comedianName;
+	private int comedianAge;
+	public int getComedianId() {
+		return comedianId;
 	}
-	public void setComedianid(int comedianid) {
-		this.comedianid = comedianid;
+	public void setComedianId(int comedianId) {
+		this.comedianId = comedianId;
 	}
-	public String getComedianname() {
-		return comedianname;
+	public String getComedianName() {
+		return comedianName;
 	}
-	public void setComedianname(String comedianname) {
-		this.comedianname = comedianname;
+	public void setComedianName(String comedianName) {
+		this.comedianName = comedianName;
 	}
-	public int getComedianage() {
-		return comedianage;
+	public int getComedianAge() {
+		return comedianAge;
 	}
-	public void setComedianage(int comedianage) {
-		this.comedianage = comedianage;
+	public void setComedianAge(int comedianAge) {
+		this.comedianAge = comedianAge;
 	}
 	@Override
 	public String toString() {
-		return "Comedian [comedianid=" + comedianid + ", comedianname=" + comedianname + ", comedianage=" + comedianage
+		return "Comedian [comedianId=" + comedianId + ", comedianName=" + comedianName + ", comedianAge=" + comedianAge
 				+ "]";
 	}
 	
