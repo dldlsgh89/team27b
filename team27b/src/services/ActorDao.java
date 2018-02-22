@@ -17,7 +17,7 @@ public class ActorDao {
 	
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&charaterEncoding=euckr";
+			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
 			String dbUser = "root";
 			String dbPass = "java0000";
 			
@@ -55,7 +55,7 @@ public class ActorDao {
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&charaterEncoding=euckr";
+			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
 			String dbUser = "root";
 			String dbPass = "java0000";
 			
@@ -83,7 +83,7 @@ public class ActorDao {
 			ResultSet resultset = null;
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
-				String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&charaterEncoding=euckr";
+				String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
 				String dbUser = "root";
 				String dbPass = "java0000";
 				
