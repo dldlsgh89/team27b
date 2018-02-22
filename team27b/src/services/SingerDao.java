@@ -10,15 +10,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class SingerDao {
-	// insertSingerList메서드 선언
-	public void insertSingerList() {
-		// jdbc관련 참조변수를 선언한다
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		
-		
-	}
-	
 	// selectSingerList메서드 선언
 	public ArrayList<Singer> selectSingerList() {
 		// jdbc관련 참조변수를 선언한다
@@ -73,7 +64,6 @@ public class SingerDao {
 	public void insertSinger(Singer singer) {
 		Connection connection = null;
 		PreparedStatement preparedstatement = null;
-		ResultSet resultset = null;
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -94,7 +84,6 @@ public class SingerDao {
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}finally { 
-			if (resultset != null) try { resultset.close(); } catch(SQLException ex) {} 
 			if (preparedstatement != null) try { preparedstatement.close(); } catch(SQLException ex) {} 
 			if (connection != null) try { connection.close(); } catch(SQLException ex) {} 
 		}

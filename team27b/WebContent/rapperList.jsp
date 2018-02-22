@@ -45,7 +45,7 @@
 					<td><a href="<%= request.getContextPath() %>/index.jsp">홈화면</a></td>
 				</tr>
 				<tr>
-					<td><a href="<%= request.getContextPath() %>/index.jsp">랩퍼추가</a></td>
+					<td><a href="<%= request.getContextPath() %>/rapperInsertForm.jsp">랩퍼추가</a></td>
 				</tr>
 				<tr>
 					<td><a href="<%= request.getContextPath() %>/index.jsp">랩퍼수정</a></td>

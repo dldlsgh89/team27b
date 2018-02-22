@@ -57,7 +57,6 @@ public class RapperDao {
 	public void insertRapper(Rapper rapper) {
 		Connection connection = null;
 		PreparedStatement preparedstatement = null;
-		ResultSet resultset = null;
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -77,8 +76,7 @@ public class RapperDao {
 			e.printStackTrace();
 		} catch(SQLException e) {
 			e.printStackTrace();
-		}finally { 
-			if (resultset != null) try { resultset.close(); } catch(SQLException ex) {} 
+		}finally {
 			if (preparedstatement != null) try { preparedstatement.close(); } catch(SQLException ex) {} 
 			if (connection != null) try { connection.close(); } catch(SQLException ex) {} 
 		}

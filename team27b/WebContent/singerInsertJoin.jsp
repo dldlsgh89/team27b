@@ -14,7 +14,7 @@
 	request.setCharacterEncoding("euckr");
 	String singerName = request.getParameter("singer_name");
 	String singerAge = request.getParameter("singer_age");
-	
+
 	Singer singer = new Singer();
 	singer.setSingerName(singerName);
 	singer.setSingerAge(Integer.parseInt(singerAge));

@@ -48,7 +48,7 @@
 					<td><a href="<%= request.getContextPath() %>/index.jsp">홈화면</a></td>
 				</tr>
 				<tr>
-					<td><a href="<%= request.getContextPath() %>/index.jsp">가수추가</a></td>
+					<td><a href="<%= request.getContextPath() %>/singerInsertForm.jsp">가수추가</a></td>
 				</tr>
 				<tr>
 					<td><a href="<%= request.getContextPath() %>/index.jsp">가수수정</a></td>
