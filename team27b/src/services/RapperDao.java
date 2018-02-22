@@ -81,4 +81,31 @@ public class RapperDao {
 			if (connection != null) try { connection.close(); } catch(SQLException ex) {} 
 		}
 	}
+	
+	public void deleteRapper(int rapperId) {
+		Connection connection = null;
+		PreparedStatement preparedstatement = null;
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&charaterEncoding=euckr";
+			String dbUser = "root";
+			String dbPass = "java0000";
+			
+			connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+			preparedstatement = connection.prepareStatement("DELETE FROM rapper WHERE rapper_id=?");
+			
+			preparedstatement.setInt(1, rapperId);			
+			
+			preparedstatement.executeUpdate();
+			
+		}catch(ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			if (preparedstatement != null) try { preparedstatement.close(); } catch(SQLException ex) {} 
+			if (connection != null) try { connection.close(); } catch(SQLException ex) {} 
+		}
+	}
 }

@@ -15,11 +15,15 @@
 	<h1 style="text-align: center;">가수 정보 목록</h1>
 	<hr>
 	<div style="width: 100%;">
-		<div style="width: 90%; float: left;">
+		<span style="width: 90%; float: left;">
 			<table style="width: 100%;" border="1">
 				<thead>
 					<tr>
-					<th>아이디</th><th>이름</th><th>나이</th>
+						<th>아이디</th>
+						<th>이름</th>
+						<th>나이</th>
+						<th>수정</th>
+						<th>삭제</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -32,32 +36,26 @@
 					for(Singer singer : list){
 					%>
 						<tr>
-						<td><%= singer.getSingerId() %></td>
-						<td><%= singer.getSingerName() %></td>
-						<td><%= singer.getSingerAge() %></td>
+							<td><%= singer.getSingerId() %></td>
+							<td><%= singer.getSingerName() %></td>
+							<td><%= singer.getSingerAge() %></td>
+							<td><a href="<%=request.getContextPath() %>/singerUpdateForm.jsp?SingerId=<%=singer.getSingerId()%>">수정</a></td>
+							<td><a href="<%=request.getContextPath() %>/singerDeleteAction.jsp?SingerId=<%=singer.getSingerId()%>">삭제</a></td>
 						</tr>
 					<%
 					}
 					%>
 				</tbody>
 			</table>
-		</div>
-		<div style="float:left;">
-			<table>
-				<tr>
-					<td><a href="<%= request.getContextPath() %>/index.jsp">홈화면</a></td>
-				</tr>
-				<tr>
-					<td><a href="<%= request.getContextPath() %>/singerInsertForm.jsp">가수추가</a></td>
-				</tr>
-				<tr>
-					<td><a href="<%= request.getContextPath() %>/index.jsp">가수수정</a></td>
-				</tr>
-				<tr>
-					<td><a href="<%= request.getContextPath() %>/index.jsp">가수삭제</a></td>
-				</tr>
-			</table>
-		</div>
+		</span>
+		<span>
+			<div>
+				<a href="<%= request.getContextPath() %>/index.jsp">홈화면</a>
+			</div>
+			<div>
+				<a href="<%= request.getContextPath() %>/singerInsertForm.jsp">가수추가</a>
+			</div>
+		</span>
 	</div>
 </body>
 </html>
