@@ -53,4 +53,34 @@ public class RapperDao {
 		
 		return list;
 	}
+	
+	public void insertRapper(Rapper rapper) {
+		Connection connection = null;
+		PreparedStatement preparedstatement = null;
+		ResultSet resultset = null;
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&charaterEncoding=euckr";
+			String dbUser = "root";
+			String dbPass = "java0000";
+			
+			connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+			preparedstatement = connection.prepareStatement("insert into rapper values (0, ?, ?)");
+			
+			preparedstatement.setString(1, rapper.getRapperName());
+			preparedstatement.setInt(2, rapper.getRapperAge());
+			
+			preparedstatement.executeUpdate();
+			
+		}catch(ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}finally { 
+			if (resultset != null) try { resultset.close(); } catch(SQLException ex) {} 
+			if (preparedstatement != null) try { preparedstatement.close(); } catch(SQLException ex) {} 
+			if (connection != null) try { connection.close(); } catch(SQLException ex) {} 
+		}
+	}
 }

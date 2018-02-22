@@ -12,9 +12,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div>
-		<h1 style="text-align: center;">가수 정보 목록</h1>
-	</div>
+	<h1 style="text-align: center;">가수 정보 목록</h1>
+	<hr>
 	<div style="width: 100%;">
 		<div style="width: 90%; float: left;">
 			<table style="width: 100%;" border="1">

@@ -1,12 +1,28 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- 나성수 -->
+
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page import="services.Rapper" %>
+<%@ page import="services.RapperDao" %>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 </head>
 <body>
-
+	<%
+	request.setCharacterEncoding("euckr");
+	String rapperName = request.getParameter("rapper_name");
+	String rapperAge = request.getParameter("rapper_age");
+	
+	Rapper rapper = new Rapper();
+	rapper.setRapperName(rapperName);
+	rapper.setRapperAge(Integer.parseInt(rapperAge));
+	
+	RapperDao rapperDao = new RapperDao();
+	rapperDao.insertRapper(rapper);
+	
+	response.sendRedirect(request.getContextPath()+"/rapperList.jsp");
+	%>
 </body>
 </html>
