@@ -15,6 +15,6 @@ actress.setActressAge(Integer.parseInt(actressAge));
 ActressDao actressdao = new ActressDao();
 actressdao.insertActress(actress);
 
-response.sendRedirect(request.getContextPath()+"/actressList.jsp");
+response.sendRedirect(request.getContextPath()+"/actress/actressList.jsp");
 %>
 

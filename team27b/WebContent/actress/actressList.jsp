@@ -2,8 +2,7 @@
 <%@ page import="services.Actress"%>
 <%@ page import="services.ActressDao"%>
 <%@ page import="java.util.ArrayList"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,9 +38,9 @@
 						<td><%=actress.getActressName()%></td>
 						<td><%=actress.getActressAge()%></td>
 						<td><a
-							href="<%=request.getContextPath()%>/actressUpdateForm.jsp?ActressId=<%=actress.getActressId()%>">수정</a></td>
+							href="<%=request.getContextPath()%>/actress/actressUpdateForm.jsp?ActressId=<%=actress.getActressId()%>">수정</a></td>
 						<td><a
-							href="<%=request.getContextPath()%>/actressDeleteAction.jsp?ActressId=<%=actress.getActressId()%>">삭제</a></td>
+							href="<%=request.getContextPath()%>/actress/actressDeleteAction.jsp?ActressId=<%=actress.getActressId()%>">삭제</a></td>
 					</tr>
 				</tbody>
 				<%
@@ -56,7 +55,7 @@
 				</tr>
 				<tr>
 					<td><a
-						href="<%=request.getContextPath()%>/actressInsertForm.jsp">여배우추가</a></td>
+						href="<%=request.getContextPath()%>/actress/actressInsertForm.jsp">여배우추가</a></td>
 				</tr>
 			</table>
 		</div>
