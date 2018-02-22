@@ -1,9 +1,7 @@
-
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ page import = "services.Comedian" %>
 <%@ page import = "services.ComedianDao" %>
 <!DOCTYPE html>
-
 <%
 	request.setCharacterEncoding("euckr");
     String comedianname = request.getParameter("comedian_name");  
@@ -18,13 +16,5 @@
 	Cdo.insertComedian(com);
 
 	response.sendRedirect(request.getContextPath()+"/comedianList.jsp");
-	
-
 %>
 
-<script>
-
-	Location.href="comedianList.jsp";
-
-
-</script>

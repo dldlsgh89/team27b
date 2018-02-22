@@ -2,7 +2,6 @@
 <%@ page import="services.Anaunseo"  %>
 <%@ page import="services.AnaunseoDao" %>
 <!DOCTYPE html>
-
 <%
 	request.setCharacterEncoding("euckr");
     String anaunseoname = request.getParameter("anaunseo_name");  
@@ -16,14 +15,5 @@
 	AnaunseoDao	Ado = new AnaunseoDao();
 	Ado.insertAnaunseo(ana);
 
-	response.sendRedirect(request.getContextPath()+"/anaunseoList.jsp");
-	
-
+	response.sendRedirect(request.getContextPath()+"/anaunseoList.jsp");	
 %>
-
-<script>
-
-	Location.href="anaunseoList.jsp";
-
-
-</script>
