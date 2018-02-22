@@ -13,6 +13,70 @@ import org.apache.catalina.connector.Request;
 
 public class ComedianDao {
 	
+	public void comedianUpdateAction(int comedianid, String comedianname,int comedianage) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			
+			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
+			String dbUser = "root";
+			String dbPass = "java0000";
+			conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+			
+			pstmt = conn.prepareStatement("update comedian set comedian_name=?,comedian_age=? where comedian_id=?");
+			pstmt.setString(1, comedianname);
+			pstmt.setInt(2, comedianage);
+			pstmt.setInt(3, comedianid);		
+			
+			pstmt.executeUpdate();
+			
+			
+		}catch(ClassNotFoundException cnfex){
+			cnfex.printStackTrace();
+		}catch(SQLException sqle) {	
+			sqle.printStackTrace();
+		}finally {
+			if(pstmt != null) try {pstmt.close();} catch(SQLException es) {}
+			if(pstmt != null) try {pstmt.close();} catch(SQLException es) {}
+		}
+	}
+	
+	public Comedian comedianUpdateForm(int ComedianId) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		Comedian com = new Comedian();
+		try {		
+			Class.forName("com.mysql.jdbc.Driver");		
+			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
+			String dbUser = "root";
+			String dbPass = "java0000";
+			conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);	
+			pstmt = conn.prepareStatement("select * from comedian where comedian_id = ?");		
+			pstmt.setInt(1, ComedianId);
+			rs = pstmt.executeQuery();
+		
+			while(rs.next()) {		
+			   com.setComedianId(rs.getInt("comedian_id"));;
+			   com.setComedianName(rs.getString("comedian_name"));
+			   com.setComedianAge(rs.getInt("comedian_age"));;	
+			}			
+		}catch(SQLException sqlex){
+			sqlex.getMessage(); //어떻게 출력된다고 했었는데 기억이 안난다
+			sqlex.printStackTrace();
+			
+		} catch (ClassNotFoundException cnfe) {
+			// 캐치는 하나안에 다 들어가지 못한다. 따로 나누어 써주어야한다
+			cnfe.printStackTrace();
+		}finally {
+			if(rs != null) try {rs.close();} catch(SQLException sqlex) {}
+			if(pstmt != null) try {pstmt.close();} catch(SQLException sqlex) {}
+			if(conn != null) try {conn.close();} catch(SQLException sqlex) {}
+		}
+		return com;		
+	}
+	
 	public void deleteComedianList(int ComedianId){
 		Connection conn = null;
 		PreparedStatement pstmt = null;

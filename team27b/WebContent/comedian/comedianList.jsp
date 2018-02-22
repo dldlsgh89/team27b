@@ -16,8 +16,16 @@
 	<div>
 		<h1 style="text-align: center;">코미디언 정보 목록</h1>
 	</div>
-	<div style="width: 100%;">
-		<div style="width: 85%; float: left;">
+	<div>
+		<span style="padding: 0 1% 0 1%;">
+			<a href="<%= request.getContextPath() %>/index.jsp" style="text-decoration: none;">홈화면</a>
+		</span>
+		<span style="padding: 0 1% 0 1%;">
+			<a href="<%= request.getContextPath() %>/comedian/comedianInsertForm.jsp" style="text-decoration: none;">코미디언추가</a>
+		</span>
+	</div>
+	<hr>	
+		<div>
 			<table style="width: 100%;" border="1">
 				<thead>
 					<tr>
@@ -33,30 +41,19 @@
 		ArrayList<Comedian> ArrayCom = Cdo.selectComedianList();		
 		for(Comedian com : ArrayCom){
 	%>	
-		<tbody>
-			<tr>
-				<td><%= com.getComedianId() %></td>
-				<td><%= com.getComedianName() %></td>
-				<td><%= com.getComedianAge() %></td>
-				<td><a href="<%= request.getContextPath() %>/comedian/anaunseoUpdateForm.jsp?AnaunseoId=<%=com.getComedianId()%>">코미디언수정</a></td>
-				<td><a href="<%= request.getContextPath() %>/comedian/comedianDeleteAction.jsp?ComedianId=<%=com.getComedianId()%>">코미디언삭제</a></td>	
-			</tr>
-		</tbody>	
+				<tbody>
+					<tr>
+						<td><%= com.getComedianId() %></td>
+						<td><%= com.getComedianName() %></td>
+						<td><%= com.getComedianAge() %></td>
+						<td><a href="<%= request.getContextPath() %>/comedian/comedianUpdateForm.jsp?ComedianId=<%=com.getComedianId()%>">코미디언수정</a></td>
+						<td><a href="<%= request.getContextPath() %>/comedian/comedianDeleteAction.jsp?ComedianId=<%=com.getComedianId()%>">코미디언삭제</a></td>	
+					</tr>
+				</tbody>	
 	<%
 		}
 	%>
 			</table>
 		</div>
-		<div style="float:left;">
-			<table>
-				<tr>
-					<td><a href="<%= request.getContextPath() %>/index.jsp">홈화면</a></td>
-				</tr>
-				<tr>
-					<td><a href="<%= request.getContextPath() %>/comedian/comedianInsertForm.jsp">코미디언추가</a></td>
-				</tr>				
-			</table>
-		</div>
-	</div>
 </body>
 </html>
