@@ -10,18 +10,30 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class SingerDao {
-	// selectSingerList메서드 선언
+	/*
+	 * selectSingerList메서드 선언
+	 * DB에 들어있는 가수데이터 전체리스트를 뽑아주는 메서드이다
+	 */
 	public ArrayList<Singer> selectSingerList() {
-		// jdbc관련 참조변수를 선언한다
+		/*
+		 * jdbc관련 참조변수를 선언한다
+		 * DB를 사용하기위해 필요한 변수들이다
+		 */
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
-		//Singer 배열을 만든다
-		ArrayList<Singer> list = new ArrayList<Singer>();
+		/*
+		 * Singer 배열을 만든다
+		 * 여러명의 가수데이터를 담을 공간을 만들어준다
+		 */
+		ArrayList<Singer> arraySinger = new ArrayList<Singer>();
 		try {
-			//드라이버 로딩
+			/*드라이버 로딩*/
 			Class.forName("com.mysql.jdbc.Driver");
-			// DB연결관련 변수에 ip주소,포트번호,db명,dbid,dbpw값들을 담는다
+			/*
+			 * DB연결관련 변수에 ip주소,포트번호,db명,dbid,dbpw값들을 담는다
+			 * 주소와 아이디 패스워드가 일치해야만 DB를 사용할수가 있다
+			 */
 			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
 			String dbUser = "root";
 			String dbPass = "java0000";
@@ -39,18 +51,18 @@ public class SingerDao {
 				singer.setSingerId(resultSet.getInt("singer_id"));
 				singer.setSingerName(resultSet.getString("singer_name"));
 				singer.setSingerAge(resultSet.getInt("singer_age"));
-				list.add(singer);
+				arraySinger.add(singer);
 			}
 		// jdbc관련 예외발생시 catch부분으로 넘겨 처리한다
-		}catch(SQLException ex) {
+		}catch(SQLException sqlex) {
 			// 예외발생된 java문구를 알려준다
-			ex.getStackTrace();
+			sqlex.getStackTrace();
 			// 예외발생된 이유를 알려준다
-			System.out.println(ex.getMessage());
+			System.out.println(sqlex.getMessage());
 		// Class.forName관려 예외발생시 catch부분으로 넘겨 처리한다
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-			System.out.println(e.getMessage());
+		} catch (ClassNotFoundException classex) {
+			classex.printStackTrace();
+			System.out.println(classex.getMessage());
 		}finally {
 			// 사용한 객체들을 정리해준다
 			if(resultSet == null) try {resultSet.close();}catch(SQLException ex){}
@@ -58,10 +70,10 @@ public class SingerDao {
 			if(connection == null) try {resultSet.close();}catch(SQLException ex){}
 		}
 		// Singer 배열 주소값을 리턴시킨다
-		return list;
+		return arraySinger;
 	}
 	
-	public void insertSinger(Singer singer) {
+	public void insertSinger(String singerName,int singerAge) {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
@@ -74,15 +86,15 @@ public class SingerDao {
 			connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 			preparedStatement = connection.prepareStatement("insert into singer values (0, ?, ?)");
 			
-			preparedStatement.setString(1, singer.getSingerName());
-			preparedStatement.setInt(2, singer.getSingerAge());
+			preparedStatement.setString(1, singerName);
+			preparedStatement.setInt(2, singerAge);
 			
 			preparedStatement.executeUpdate();
 			
-		}catch(ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch(SQLException e) {
-			e.printStackTrace();
+		}catch(ClassNotFoundException classex) {
+			classex.printStackTrace();
+		} catch(SQLException sqlex) {
+			sqlex.printStackTrace();
 		}finally { 
 			if (preparedStatement != null) try { preparedStatement.close(); } catch(SQLException ex) {} 
 			if (connection != null) try { connection.close(); } catch(SQLException ex) {} 
@@ -106,17 +118,17 @@ public class SingerDao {
 			
 			preparedStatement.executeUpdate();
 			
-		}catch(ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch(SQLException e) {
-			e.printStackTrace();
+		}catch(ClassNotFoundException classex) {
+			classex.printStackTrace();
+		} catch(SQLException sqlex) {
+			sqlex.printStackTrace();
 		}finally {
 			if (preparedStatement != null) try { preparedStatement.close(); } catch(SQLException ex) {} 
 			if (connection != null) try { connection.close(); } catch(SQLException ex) {} 
 		}
 	}
 	//
-	public Singer updateFormSinger(int singerId) {
+	public Singer updateSingerForm(int singerId) {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
@@ -140,10 +152,10 @@ public class SingerDao {
 				singer.setSingerAge(resultSet.getInt("singer_age"));
 			}
 			
-		}catch(ClassNotFoundException cnfe){
-			cnfe.getMessage();
-		}catch(SQLException sqle) {	
-			sqle.printStackTrace();
+		}catch(ClassNotFoundException classex){
+			classex.getMessage();
+		}catch(SQLException sqlex) {	
+			sqlex.printStackTrace();
 		}finally {
 			if(resultSet != null) try{resultSet.close();} catch(SQLException sqle) {}
 			if(preparedStatement != null) try{preparedStatement.close();} catch(SQLException sqle) {}
@@ -153,7 +165,7 @@ public class SingerDao {
 		return singer;
 	}
 	
-	public void updateActionSinger(Singer singer) {
+	public void updateSingerAction(int singerId,String singerName,int singerAge) {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
@@ -165,16 +177,16 @@ public class SingerDao {
 			connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 			
 			preparedStatement = connection.prepareStatement("UPDATE singer SET singer_name=?, singer_age=? WHERE singer_id=?");
-			preparedStatement.setString(1, singer.getSingerName());
-			preparedStatement.setInt(2, singer.getSingerAge());
-			preparedStatement.setInt(3, singer.getSingerId());
+			preparedStatement.setString(1, singerName);
+			preparedStatement.setInt(2, singerAge);
+			preparedStatement.setInt(3, singerId);
 			
 			preparedStatement.executeUpdate();
 			
-		}catch(ClassNotFoundException cnfe){
-			cnfe.getMessage();
-		}catch(SQLException sqle) {	
-			sqle.printStackTrace();
+		}catch(ClassNotFoundException classex){
+			classex.getMessage();
+		}catch(SQLException sqlex) {	
+			sqlex.printStackTrace();
 		}finally {
 			if(preparedStatement != null) try{preparedStatement.close();} catch(SQLException sqle) {}
 			if(connection != null) try{connection.close();}  catch(SQLException sqle) {}

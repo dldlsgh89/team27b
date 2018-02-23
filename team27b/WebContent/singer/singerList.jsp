@@ -40,9 +40,9 @@
 				// SingerDao 객체를 생성하고 singerDao 참조변수에 주소값을 담는다
 				SingerDao singerDao = new SingerDao();
 				// selectSinger메서드를 호출하고 리턴값인 RsultSet객체주소값을 list 참조변수에 담는다
-				ArrayList<Singer> list = singerDao.selectSingerList();
+				ArrayList<Singer> arraySinger = singerDao.selectSingerList();
 				// list에 담긴 주소를 찾아가 singer객체들을 가져오고 객체들의 양만큼 반복한다
-				for(Singer singer : list){
+				for(Singer singer : arraySinger){
 				%>
 					<tr>
 						<td><%= singer.getSingerId() %></td>

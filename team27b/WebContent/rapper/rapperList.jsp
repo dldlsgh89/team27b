@@ -37,9 +37,9 @@
 			<tbody>
 				<%
 				RapperDao rapperDao = new RapperDao();
-				ArrayList<Rapper> list = rapperDao.selectRapperList();
+				ArrayList<Rapper> arrayRapper = rapperDao.selectRapperList();
 				
-				for(Rapper rapper : list){
+				for(Rapper rapper : arrayRapper){
 				%>
 					<tr>
 						<td><%= rapper.getRapperId() %></td>

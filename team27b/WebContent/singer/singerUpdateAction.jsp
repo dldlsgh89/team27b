@@ -15,14 +15,9 @@
 	int singerId = Integer.parseInt(request.getParameter("singer_id"));
 	String singerName = request.getParameter("singer_name");
 	int singerAge = Integer.parseInt(request.getParameter("singer_age"));
-
-	Singer singer = new Singer();
-	singer.setSingerId(singerId);
-	singer.setSingerName(singerName);
-	singer.setSingerAge(singerAge);
 	
 	SingerDao singerDao = new SingerDao();
-	singerDao.updateActionSinger(singer);
+	singerDao.updateSingerAction(singerId, singerName, singerAge);
 	
 	response.sendRedirect(request.getContextPath()+"/singer/singerList.jsp");
 	%>

@@ -15,12 +15,8 @@
 	String rapperName = request.getParameter("rapper_name");
 	int rapperAge = Integer.parseInt(request.getParameter("rapper_age"));
 	
-	Rapper rapper = new Rapper();
-	rapper.setRapperName(rapperName);
-	rapper.setRapperAge(rapperAge);
-	
 	RapperDao rapperDao = new RapperDao();
-	rapperDao.insertRapper(rapper);
+	rapperDao.insertRapper(rapperName, rapperAge);
 	
 	response.sendRedirect(request.getContextPath()+"/rapper/rapperList.jsp");
 	%>

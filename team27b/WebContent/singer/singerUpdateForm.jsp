@@ -16,7 +16,7 @@
 	int singerId = Integer.parseInt(request.getParameter("SingerId"));
 	
 	SingerDao singerDao = new SingerDao();
-	Singer singer = singerDao.updateFormSinger(singerId);
+	Singer singer = singerDao.updateSingerForm(singerId);
 	%>
 	<form action = "<%= request.getContextPath() %>/singer/singerUpdateAction.jsp" method = "post">
 		<input type="hidden" name="singer_id" value="<%=singer.getSingerId()%>">

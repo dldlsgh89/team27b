@@ -14,13 +14,9 @@
 	request.setCharacterEncoding("EUC-KR");
 	String singerName = request.getParameter("singer_name");
 	int singerAge = Integer.parseInt(request.getParameter("singer_age"));
-
-	Singer singer = new Singer();
-	singer.setSingerName(singerName);
-	singer.setSingerAge(singerAge);
 	
 	SingerDao singerDao = new SingerDao();
-	singerDao.insertSinger(singer);
+	singerDao.insertSinger(singerName, singerAge);
 	
 	response.sendRedirect(request.getContextPath()+"/singer/singerList.jsp");
 	%>
