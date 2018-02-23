@@ -13,7 +13,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div>
+	<%
+	String S_ID = (String)session.getAttribute("S_ID");
+	
+	if(S_ID != null){
+	%>
+		<div>
 		<h1 style="text-align: center;">코미디언 정보 목록</h1>
 	</div>
 	<div>
@@ -55,5 +60,46 @@
 	%>
 			</table>
 		</div>
+	<%
+	}else{
+	%>
+	<div>
+		<h1 style="text-align: center;">코미디언 정보 목록</h1>
+	</div>
+	<div>
+		<span style="padding: 0 1% 0 1%;">
+			<a href="<%= request.getContextPath() %>/index.jsp" style="text-decoration: none;">홈화면</a>
+		</span>		
+	</div>
+	<hr>	
+		<div>
+			<table style="width: 100%;" border="1">
+				<thead>
+					<tr>
+					<th>아이디</th>
+					<th>이름</th>
+					<th>나이</th>					
+					</tr>
+				</thead>
+	<%
+		ComedianDao	comedianDao = new ComedianDao();	
+		ArrayList<Comedian> arrayComedian = comedianDao.selectComedianList();		
+		for(Comedian comedian : arrayComedian){
+	%>	
+				<tbody>
+					<tr>
+						<td><%= comedian.getComedianId() %></td>
+						<td><%= comedian.getComedianName() %></td>
+						<td><%= comedian.getComedianAge() %></td>							
+					</tr>
+				</tbody>	
+	<%
+		}
+	%>
+			</table>
+		</div>
+	<%
+	}
+	%>
 </body>
 </html>

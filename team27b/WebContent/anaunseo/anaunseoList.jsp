@@ -13,7 +13,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div>
+	<%
+	String S_ID = (String)session.getAttribute("S_ID");
+	
+	if(S_ID != null){
+	%>
+		<div>
 		<h1 style="text-align: center;">아나운서 정보 목록</h1>
 	</div>
 	<div>
@@ -59,5 +64,50 @@
 	%>
 		</table>	
 		</div>
+	<%
+	}else{
+	%>
+		<div>
+		<h1 style="text-align: center;">아나운서 정보 목록</h1>
+	</div>
+	<div>
+		<span style="padding: 0 1% 0 1%;">
+			<a href="<%= request.getContextPath() %>/index.jsp" style="text-decoration: none;">홈화면</a>
+		</span>		
+	</div>
+	<hr>	
+		<div>
+			<table style="width: 100%;" border="1">
+				<thead>
+					<tr>
+						<th>아이디</th>
+						<th>이름</th>
+						<th>나이</th>						
+					</tr>
+				</thead>	
+		<!-- 테이블 윗부분에서 각 칼럼위치의 제목을 먼저 잡아준다 -->
+	
+	<%
+		AnaunseoDao anaunseoDao = new AnaunseoDao();
+		ArrayList<Anaunseo> arrayAnaunseo = anaunseoDao.selectAnaunseoList();		
+		for(int i = 0; i<arrayAnaunseo.size(); i++){
+			Anaunseo anaunseo = arrayAnaunseo.get(i);			
+			//
+	%>
+				<tbody>	
+					<tr>
+						<td><%= anaunseo.getAnaunseoId()%></td>
+						<td><%= anaunseo.getAnaunseoName()%></td>
+						<td><%= anaunseo.getAnaunseoAge()%></td>									
+					</tr>
+				</tbody>									
+	<%
+			}
+	%>
+		</table>	
+		</div>
+	<%
+	}
+	%>
 </body>
 </html>
