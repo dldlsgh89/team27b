@@ -8,7 +8,7 @@
 <body>
 
 팀명 Team27b
-
+	<%@ include file="/member/memberLoginForm.jsp" %>
 	<ul>
 		<img src="<%= request.getContextPath() %>/image/Lee.jpg" width="" height=""/>
 		<br>이인호			<!-- 프로젝트 팀이름  경로-->
