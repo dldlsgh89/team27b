@@ -12,7 +12,7 @@
 </head>
 <body>
 <%
-String actressId = request.getParameter("actress_id");
+String actressId = request.getParameter("ActressId");
 ActressDao actressDao = new ActressDao();
 Actress actress = actressDao.updateActressForm(Integer.parseInt(actressId));
 %>
@@ -32,7 +32,7 @@ Actress actress = actressDao.updateActressForm(Integer.parseInt(actressId));
 					<td><input type="text" name="actress_age" value="<%=actress.getActressAge() %>" size="20"></td>
 				</tr>
 				<tr style="text-align: left;">
-					<td><input type="submit" value="수정버튼"></td>
+					<td><input type="submit" value="수정"></td>
 				</tr>
 			</thead>
 		</table>

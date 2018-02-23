@@ -17,7 +17,7 @@
 	
 	RapperDao rapperDao = new RapperDao();
 	rapperDao.insertRapper(rapperName, rapperAge);
-	
+
 	response.sendRedirect(request.getContextPath()+"/rapper/rapperList.jsp");
 	%>
 </body>

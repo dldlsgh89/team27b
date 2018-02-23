@@ -77,7 +77,7 @@ public class ActorDao {
 			if (connection != null) try { connection.close(); } catch(SQLException sqlex) {} 
 		}
 	}
-		public void deleteActor(int ActorId) {			
+		public void deleteActor(int actorId) {			
 			Connection connection = null;
 			PreparedStatement preparedstatement = null;
 			ResultSet resultset = null;
@@ -89,7 +89,7 @@ public class ActorDao {
 				
 				connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 				preparedstatement = connection.prepareStatement("DELETE FROM actor WHERE actor_id=?");  
-				preparedstatement.setInt(1, ActorId);  
+				preparedstatement.setInt(1, actorId);  
 				preparedstatement.executeUpdate();  
 				
 			}catch(ClassNotFoundException classex) {

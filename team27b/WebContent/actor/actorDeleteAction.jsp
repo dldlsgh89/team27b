@@ -9,7 +9,7 @@
 </head>
 <body>
 	<%
-		int actorId = Integer.parseInt(request.getParameter("actorId"));
+		int actorId = Integer.parseInt(request.getParameter("ActorId"));
 		ActorDao actorDao = new ActorDao();
 		actorDao.deleteActor(actorId);
 		response.sendRedirect(request.getContextPath() + "/actor/actorList.jsp");

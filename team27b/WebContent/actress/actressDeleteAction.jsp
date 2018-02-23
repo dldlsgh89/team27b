@@ -1,6 +1,7 @@
 <!--27±â BÁ¶ ¹è°ÇÇı  -->
 <%@page import="services.ActressDao"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,11 +9,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-int actressId = Integer.parseInt(request.getParameter("actressId"));
-ActressDao actressDao = new ActressDao();
-actressDao.deleteActress(actressId);
-response.sendRedirect(request.getContextPath()+"/actress/actressList.jsp");
-%>
+	<%
+		int actressId = Integer.parseInt(request.getParameter("ActressId"));
+		ActressDao actressDao = new ActressDao();
+		actressDao.deleteActress(actressId);
+		response.sendRedirect(request.getContextPath() + "/actress/actressList.jsp");
+	%>
 </body>
 </html>

@@ -11,7 +11,7 @@
 </head>
 <body>
 <%
-String actorId = request.getParameter("actor_id");
+String actorId = request.getParameter("ActorId");
 ActorDao actorDao = new ActorDao();
 Actor actor = actorDao.updateActorForm(Integer.parseInt(actorId));
 %>
@@ -31,7 +31,7 @@ Actor actor = actorDao.updateActorForm(Integer.parseInt(actorId));
 					<td><input type="text" name="actor_age" value="<%=actor.getActorAge() %>" size="20"></td>
 				</tr>
 				<tr style="text-align: left;">
-					<td><input type="submit" value="수정버튼"></td>
+					<td><input type="submit" value="수정"></td>
 				</tr>
 			</thead>
 		</table>
