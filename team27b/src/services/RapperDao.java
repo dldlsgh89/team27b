@@ -14,8 +14,8 @@ public class RapperDao {
 	public ArrayList<Rapper> selectRapperList() {
 		// jdbc관련 참조변수를 선언한다
 		Connection connection = null;
-		PreparedStatement preparedStatement = null;
-		ResultSet resultSet = null;
+		PreparedStatement preparedstatement = null;
+		ResultSet resultset = null;
 		//Rapper 배열을 만든다
 		ArrayList<Rapper> arrayRapper = new ArrayList<Rapper>();
 		try {
@@ -28,15 +28,15 @@ public class RapperDao {
 			
 			connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 			
-			preparedStatement = connection.prepareStatement("SELECT rapper_id,rapper_name,rapper_age FROM rapper");
+			preparedstatement = connection.prepareStatement("SELECT rapper_id,rapper_name,rapper_age FROM rapper");
 			
-			resultSet = preparedStatement.executeQuery();
+			resultset = preparedstatement.executeQuery();
 			
-			while(resultSet.next()) {
+			while(resultset.next()) {
 				Rapper rapper = new Rapper();
-				rapper.setRapperId(resultSet.getInt("rapper_id"));
-				rapper.setRapperName(resultSet.getString("rapper_name"));
-				rapper.setRapperAge(resultSet.getInt("rapper_age"));
+				rapper.setRapperId(resultset.getInt("rapper_id"));
+				rapper.setRapperName(resultset.getString("rapper_name"));
+				rapper.setRapperAge(resultset.getInt("rapper_age"));
 				arrayRapper.add(rapper);
 			}
 		}catch(SQLException sqlex) {
@@ -46,9 +46,9 @@ public class RapperDao {
 			classex.printStackTrace();
 			System.out.println(classex.getMessage());
 		}finally {
-			if(resultSet == null) try {resultSet.close();}catch(SQLException ex){}
-			if(preparedStatement == null) try {resultSet.close();}catch(SQLException ex){}
-			if(connection == null) try {resultSet.close();}catch(SQLException ex){}
+			if(resultset == null) try {resultset.close();}catch(SQLException sqlex){}
+			if(preparedstatement == null) try {resultset.close();}catch(SQLException sqlex){}
+			if(connection == null) try {resultset.close();}catch(SQLException sqlex){}
 		}
 		
 		return arrayRapper;
@@ -56,7 +56,7 @@ public class RapperDao {
 	
 	public void insertRapper(String rapperName,int rapperAge) {
 		Connection connection = null;
-		PreparedStatement preparedStatement = null;
+		PreparedStatement preparedstatement = null;
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -65,26 +65,26 @@ public class RapperDao {
 			String dbPass = "java0000";
 			
 			connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
-			preparedStatement = connection.prepareStatement("insert into rapper values (0, ?, ?)");
+			preparedstatement = connection.prepareStatement("insert into rapper values (0, ?, ?)");
 			
-			preparedStatement.setString(1, rapperName);
-			preparedStatement.setInt(2, rapperAge);
+			preparedstatement.setString(1, rapperName);
+			preparedstatement.setInt(2, rapperAge);
 			
-			preparedStatement.executeUpdate();
+			preparedstatement.executeUpdate();
 			
 		}catch(ClassNotFoundException classex) {
 			classex.printStackTrace();
 		} catch(SQLException sqlex) {
 			sqlex.printStackTrace();
 		}finally {
-			if (preparedStatement != null) try { preparedStatement.close(); } catch(SQLException ex) {} 
-			if (connection != null) try { connection.close(); } catch(SQLException ex) {} 
+			if (preparedstatement != null) try { preparedstatement.close(); } catch(SQLException sqlex) {} 
+			if (connection != null) try { connection.close(); } catch(SQLException sqlex) {} 
 		}
 	}
 	
 	public void deleteRapper(int rapperId) {
 		Connection connection = null;
-		PreparedStatement preparedStatement = null;
+		PreparedStatement preparedstatement = null;
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -93,25 +93,25 @@ public class RapperDao {
 			String dbPass = "java0000";
 			
 			connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
-			preparedStatement = connection.prepareStatement("DELETE FROM rapper WHERE rapper_id=?");
+			preparedstatement = connection.prepareStatement("DELETE FROM rapper WHERE rapper_id=?");
 			
-			preparedStatement.setInt(1, rapperId);			
+			preparedstatement.setInt(1, rapperId);			
 			
-			preparedStatement.executeUpdate();
+			preparedstatement.executeUpdate();
 			
 		}catch(ClassNotFoundException classex) {
 			classex.printStackTrace();
 		} catch(SQLException sqlex) {
 			sqlex.printStackTrace();
 		}finally {
-			if (preparedStatement != null) try { preparedStatement.close(); } catch(SQLException ex) {} 
-			if (connection != null) try { connection.close(); } catch(SQLException ex) {} 
+			if (preparedstatement != null) try { preparedstatement.close(); } catch(SQLException sqlex) {} 
+			if (connection != null) try { connection.close(); } catch(SQLException sqlex) {} 
 		}
 	}
 	
 	public Rapper updateRapperForm(int rapperId) {
 		Connection connection = null;
-		PreparedStatement preparedStatement = null;
+		PreparedStatement preparedstatement = null;
 		ResultSet resultset = null;
 		Rapper rapper = new Rapper();
 		
@@ -122,10 +122,10 @@ public class RapperDao {
 			String dbPass = "java0000";
 			connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 			
-			preparedStatement = connection.prepareStatement("SELECT rapper_id,rapper_name,rapper_age FROM rapper WHERE rapper_id=?");
-			preparedStatement.setInt(1, rapperId);
+			preparedstatement = connection.prepareStatement("SELECT rapper_id,rapper_name,rapper_age FROM rapper WHERE rapper_id=?");
+			preparedstatement.setInt(1, rapperId);
 			
-			resultset = preparedStatement.executeQuery();
+			resultset = preparedstatement.executeQuery();
 			
 			if(resultset.next()) {
 				rapper.setRapperId(resultset.getInt("rapper_id"));
@@ -138,9 +138,9 @@ public class RapperDao {
 		}catch(SQLException sqlex) {	
 			sqlex.printStackTrace();
 		}finally {
-			if(resultset != null) try{resultset.close();} catch(SQLException sqle) {}
-			if(preparedStatement != null) try{preparedStatement.close();} catch(SQLException sqle) {}
-			if(connection != null) try{connection.close();}  catch(SQLException sqle) {}
+			if(resultset != null) try{resultset.close();} catch(SQLException sqlex) {}
+			if(preparedstatement != null) try{preparedstatement.close();} catch(SQLException sqlex) {}
+			if(connection != null) try{connection.close();}  catch(SQLException sqlex) {}
 		}
 		
 		return rapper;
@@ -148,7 +148,7 @@ public class RapperDao {
 	
 	public void updateRapperAction(int rapperId,String rapperName,int rapperAge) {
 		Connection connection = null;
-		PreparedStatement preparedStatement = null;
+		PreparedStatement preparedstatement = null;
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -157,20 +157,20 @@ public class RapperDao {
 			String dbPass = "java0000";
 			connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 			
-			preparedStatement = connection.prepareStatement("UPDATE rapper SET rapper_name=?, rapper_age=? WHERE rapper_id=?");
-			preparedStatement.setString(1, rapperName);
-			preparedStatement.setInt(2, rapperAge);
-			preparedStatement.setInt(3, rapperId);
+			preparedstatement = connection.prepareStatement("UPDATE rapper SET rapper_name=?, rapper_age=? WHERE rapper_id=?");
+			preparedstatement.setString(1, rapperName);
+			preparedstatement.setInt(2, rapperAge);
+			preparedstatement.setInt(3, rapperId);
 			
-			preparedStatement.executeUpdate();
+			preparedstatement.executeUpdate();
 			
 		}catch(ClassNotFoundException classex){
 			classex.getMessage();
 		}catch(SQLException sqlex) {	
 			sqlex.printStackTrace();
 		}finally {
-			if(preparedStatement != null) try{preparedStatement.close();} catch(SQLException sqle) {}
-			if(connection != null) try{connection.close();}  catch(SQLException sqle) {}
+			if(preparedstatement != null) try{preparedstatement.close();} catch(SQLException sqlex) {}
+			if(connection != null) try{connection.close();}  catch(SQLException sqlex) {}
 		}
 			
 	}

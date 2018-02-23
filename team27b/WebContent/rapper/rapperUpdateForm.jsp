@@ -31,7 +31,7 @@
 					<td><input type="text" name="rapper_age" value="<%=rapper.getRapperAge() %>" size="20"></td>
 				</tr>
 				<tr>
-					<td colspan="2" style="padding: 0 0 0 33%;"><input type="submit" value="수정하기"></td>
+					<td colspan="2" style="padding: 0 0 0 33%;"><input type="submit" value="수정"></td>
 				</tr>
 			</tbody>
 		</table>
