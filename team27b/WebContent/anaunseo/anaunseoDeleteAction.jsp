@@ -3,10 +3,10 @@
 <!DOCTYPE>
 
 <%
-	int AnaunseoId = Integer.parseInt(request.getParameter("AnaunseoId"));
+	int anaunseoId = Integer.parseInt(request.getParameter("AnaunseoId"));
 	
-	AnaunseoDao adao = new AnaunseoDao();
-	adao.deleteAnaunseoList(AnaunseoId);
+	AnaunseoDao anaunseoDao = new AnaunseoDao();
+	anaunseoDao.deleteAnaunseo(anaunseoId);
 	
 	response.sendRedirect(request.getContextPath()+"/anaunseo/anaunseoList.jsp");
 %>

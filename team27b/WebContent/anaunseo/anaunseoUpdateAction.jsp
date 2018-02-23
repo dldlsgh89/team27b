@@ -4,12 +4,12 @@
 
 <%
 	request.setCharacterEncoding("EUC-KR");
-	int anaunseoid = Integer.parseInt(request.getParameter("anaunseo_id"));
-	String anaunseoname = request.getParameter("anaunseo_name");
-	int anaunseoage = Integer.parseInt(request.getParameter("anaunseo_age"));
+	int anaunseoId = Integer.parseInt(request.getParameter("anaunseo_id"));
+	String anaunseoName = request.getParameter("anaunseo_name");
+	int anaunseoAge = Integer.parseInt(request.getParameter("anaunseo_age"));
 	
-	AnaunseoDao adao = new AnaunseoDao();
-	adao.anaunseoUpdateAction(anaunseoid, anaunseoname, anaunseoage);
+	AnaunseoDao anaunseoDao = new AnaunseoDao();
+	anaunseoDao.updateAnaunseoAction(anaunseoId, anaunseoName, anaunseoAge);
 						
 	response.sendRedirect(request.getContextPath()+"/anaunseo/anaunseoList.jsp");
 %>

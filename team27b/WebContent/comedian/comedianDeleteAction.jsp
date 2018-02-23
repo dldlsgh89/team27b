@@ -3,10 +3,10 @@
 <!DOCTYPE html>
 
 <%
-	int ComedianId = Integer.parseInt(request.getParameter("ComedianId"));
+	int comedianId = Integer.parseInt(request.getParameter("ComedianId"));
 	
-	ComedianDao adao = new ComedianDao();
-	adao.deleteComedianList(ComedianId);
+	ComedianDao comedianDao = new ComedianDao();
+	comedianDao.deleteComedian(comedianId);
 	
 	response.sendRedirect(request.getContextPath()+"/comedian/comedianList.jsp");
 %>

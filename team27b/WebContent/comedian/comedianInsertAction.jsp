@@ -6,14 +6,9 @@
 	request.setCharacterEncoding("euckr");
     String comedianName = request.getParameter("comedian_name");  
 	String comedianAge = request.getParameter("comedian_age");  
-
-	Comedian com = new Comedian();
 	
-	com.setComedianName(comedianName);
-	com.setComedianAge(Integer.parseInt(comedianAge));
-	
-	ComedianDao	Cdo = new ComedianDao();
-	Cdo.insertComedian(com);
+	ComedianDao	comedianDao = new ComedianDao();
+	comedianDao.insertComedian(comedianName, Integer.parseInt(comedianAge));
 
 	response.sendRedirect(request.getContextPath()+"/comedian/comedianList.jsp");
 %>

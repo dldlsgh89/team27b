@@ -9,9 +9,9 @@
 </head>
 <body>
 <%
-	String AnaunseoId = request.getParameter("AnaunseoId");
-	AnaunseoDao adao = new AnaunseoDao();
-	Anaunseo ana = adao.anaunseoUpdateForm(Integer.parseInt(AnaunseoId));
+	String anaunseoId = request.getParameter("AnaunseoId");
+	AnaunseoDao anaunseoDao = new AnaunseoDao();
+	Anaunseo anaunseo = anaunseoDao.updateAnaunseoForm(Integer.parseInt(anaunseoId));
 	
 %>
 
@@ -19,16 +19,16 @@
 		<h1 style="text-align: center;">아나운서 수정양식</h1>
 	</div>
 		<form action = "<%= request.getContextPath() %>/anaunseo/anaunseoUpdateAction.jsp" method = "post">
-			<input type="hidden" name="anaunseo_id" value="<%= ana.getAnaunseoId() %>">
+			<input type="hidden" name="anaunseo_id" value="<%= anaunseo.getAnaunseoId() %>">
 			<table border="1">
 				<thead>					
 					<tr>
 						<th>이름</th>
-						<td><input type="text" name="anaunseo_name" value="<%= ana.getAnaunseoName() %>" size="20"></td>
+						<td><input type="text" name="anaunseo_name" value="<%= anaunseo.getAnaunseoName() %>" size="20"></td>
 					</tr>
 					<tr>
 						<th>나이</th>
-						<td><input type="text" name="anaunseo_age" value="<%= ana.getAnaunseoAge() %>" size="20"></td>
+						<td><input type="text" name="anaunseo_age" value="<%= anaunseo.getAnaunseoAge() %>" size="20"></td>
 					</tr>
 						<tr style = "text-align: left;">
 						<td><input type="submit" value="입력하기"></td>

@@ -37,17 +37,17 @@
 					</tr>
 				</thead>
 	<%
-		ComedianDao	Cdo = new ComedianDao();	
-		ArrayList<Comedian> ArrayCom = Cdo.selectComedianList();		
-		for(Comedian com : ArrayCom){
+		ComedianDao	comedianDao = new ComedianDao();	
+		ArrayList<Comedian> arrayComedian = comedianDao.selectComedianList();		
+		for(Comedian comedian : arrayComedian){
 	%>	
 				<tbody>
 					<tr>
-						<td><%= com.getComedianId() %></td>
-						<td><%= com.getComedianName() %></td>
-						<td><%= com.getComedianAge() %></td>
-						<td><a href="<%= request.getContextPath() %>/comedian/comedianUpdateForm.jsp?ComedianId=<%=com.getComedianId()%>">코미디언수정</a></td>
-						<td><a href="<%= request.getContextPath() %>/comedian/comedianDeleteAction.jsp?ComedianId=<%=com.getComedianId()%>">코미디언삭제</a></td>	
+						<td><%= comedian.getComedianId() %></td>
+						<td><%= comedian.getComedianName() %></td>
+						<td><%= comedian.getComedianAge() %></td>
+						<td><a href="<%= request.getContextPath() %>/comedian/comedianUpdateForm.jsp?ComedianId=<%=comedian.getComedianId()%>">코미디언수정</a></td>
+						<td><a href="<%= request.getContextPath() %>/comedian/comedianDeleteAction.jsp?ComedianId=<%=comedian.getComedianId()%>">코미디언삭제</a></td>	
 					</tr>
 				</tbody>	
 	<%

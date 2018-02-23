@@ -5,15 +5,11 @@
 <%
 	request.setCharacterEncoding("euckr");
     String anaunseoName = request.getParameter("anaunseo_name");  
-	String anaunseoAge = request.getParameter("anaunseo_age");  
-	
-	Anaunseo ana = new Anaunseo();
-	
-	ana.setAnaunseoName(anaunseoName);
-	ana.setAnaunseoAge(Integer.parseInt(anaunseoAge));
-	
-	AnaunseoDao	Ado = new AnaunseoDao();
-	Ado.insertAnaunseo(ana);
+	int anaunseoAge = Integer.parseInt(request.getParameter("anaunseo_age"));
+						  
+		
+	AnaunseoDao	anaunseoDao = new AnaunseoDao();
+	anaunseoDao.insertAnaunseo(anaunseoName, anaunseoAge);
 
 	response.sendRedirect(request.getContextPath()+"/anaunseo/anaunseoList.jsp");	
 %>

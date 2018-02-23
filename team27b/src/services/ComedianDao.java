@@ -13,99 +13,99 @@ import org.apache.catalina.connector.Request;
 
 public class ComedianDao {
 	
-	public void comedianUpdateAction(int comedianid, String comedianname,int comedianage) {
-		Connection conn = null;
-		PreparedStatement pstmt = null;
+	public void updateComedianAction(int comedianid, String comedianname,int comedianage) {
+		Connection connnection = null;
+		PreparedStatement preparedstatememt = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			
 			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
 			String dbUser = "root";
 			String dbPass = "java0000";
-			conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+			connnection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 			
-			pstmt = conn.prepareStatement("update comedian set comedian_name=?,comedian_age=? where comedian_id=?");
-			pstmt.setString(1, comedianname);
-			pstmt.setInt(2, comedianage);
-			pstmt.setInt(3, comedianid);		
+			preparedstatememt = connnection.prepareStatement("update comedian set comedian_name=?,comedian_age=? where comedian_id=?");
+			preparedstatememt.setString(1, comedianname);
+			preparedstatememt.setInt(2, comedianage);
+			preparedstatememt.setInt(3, comedianid);		
 			
-			pstmt.executeUpdate();
+			preparedstatememt.executeUpdate();
 			
 			
-		}catch(ClassNotFoundException cnfex){
-			cnfex.printStackTrace();
-		}catch(SQLException sqle) {	
-			sqle.printStackTrace();
+		}catch(ClassNotFoundException classex){
+			classex.printStackTrace();
+		}catch(SQLException sqlex) {	
+			sqlex.printStackTrace();
 		}finally {
-			if(pstmt != null) try {pstmt.close();} catch(SQLException es) {}
-			if(pstmt != null) try {pstmt.close();} catch(SQLException es) {}
+			if(preparedstatememt != null) try {preparedstatememt.close();} catch(SQLException sqlex) {}
+			if(preparedstatememt != null) try {preparedstatememt.close();} catch(SQLException sqlex) {}
 		}
 	}
 	
-	public Comedian comedianUpdateForm(int ComedianId) {
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		Comedian com = new Comedian();
+	public Comedian updateComedianForm(int ComedianId) {
+		Connection connnection = null;
+		PreparedStatement preparedstatememt = null;
+		ResultSet resultset = null;
+		Comedian comedian = new Comedian();
 		try {		
 			Class.forName("com.mysql.jdbc.Driver");		
 			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
 			String dbUser = "root";
 			String dbPass = "java0000";
-			conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);	
-			pstmt = conn.prepareStatement("select * from comedian where comedian_id = ?");		
-			pstmt.setInt(1, ComedianId);
-			rs = pstmt.executeQuery();
+			connnection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);	
+			preparedstatememt = connnection.prepareStatement("select * from comedian where comedian_id = ?");		
+			preparedstatememt.setInt(1, ComedianId);
+			resultset = preparedstatememt.executeQuery();
 		
-			while(rs.next()) {		
-			   com.setComedianId(rs.getInt("comedian_id"));;
-			   com.setComedianName(rs.getString("comedian_name"));
-			   com.setComedianAge(rs.getInt("comedian_age"));;	
+			while(resultset.next()) {		
+			   comedian.setComedianId(resultset.getInt("comedian_id"));;
+			   comedian.setComedianName(resultset.getString("comedian_name"));
+			   comedian.setComedianAge(resultset.getInt("comedian_age"));;	
 			}			
 		}catch(SQLException sqlex){
 			sqlex.getMessage(); //어떻게 출력된다고 했었는데 기억이 안난다
 			sqlex.printStackTrace();
 			
-		} catch (ClassNotFoundException cnfe) {
+		} catch (ClassNotFoundException classex) {
 			// 캐치는 하나안에 다 들어가지 못한다. 따로 나누어 써주어야한다
-			cnfe.printStackTrace();
+			classex.printStackTrace();
 		}finally {
-			if(rs != null) try {rs.close();} catch(SQLException sqlex) {}
-			if(pstmt != null) try {pstmt.close();} catch(SQLException sqlex) {}
-			if(conn != null) try {conn.close();} catch(SQLException sqlex) {}
+			if(resultset != null) try {resultset.close();} catch(SQLException sqlex) {}
+			if(preparedstatememt != null) try {preparedstatememt.close();} catch(SQLException sqlex) {}
+			if(connnection != null) try {connnection.close();} catch(SQLException sqlex) {}
 		}
-		return com;		
+		return comedian;		
 	}
 	
-	public void deleteComedianList(int ComedianId){
-		Connection conn = null;
-		PreparedStatement pstmt = null;
+	public void deleteComedian(int ComedianId){
+		Connection connnection = null;
+		PreparedStatement preparedstatememt = null;
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
 				String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
 				String dbUser = "root";
 				String dbPass = "java0000";
-				conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+				connnection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 				
-				pstmt = conn.prepareStatement("delete from comedian where comedian_id = ?");
-				pstmt.setInt(1, ComedianId);
+				preparedstatememt = connnection.prepareStatement("delete from comedian where comedian_id = ?");
+				preparedstatememt.setInt(1, ComedianId);
 				
-				pstmt.executeUpdate();
-			}catch(SQLException ex){
-				ex.printStackTrace();
-			}catch(ClassNotFoundException cnfe){
-				cnfe.printStackTrace();
+				preparedstatememt.executeUpdate();
+			}catch(SQLException sqlex){
+				sqlex.printStackTrace();
+			}catch(ClassNotFoundException classex){
+				classex.printStackTrace();
 			}finally{
-				if(pstmt != null) try {pstmt.close();} catch(SQLException ex) {}
-				if(conn != null) try {conn.close();} catch(SQLException ex) {}
+				if(preparedstatememt != null) try {preparedstatememt.close();} catch(SQLException sqlex) {}
+				if(connnection != null) try {connnection.close();} catch(SQLException sqlex) {}
 			}
 	}
 
 	public ArrayList<Comedian> selectComedianList(){
 		ArrayList<Comedian> ArrayCom = new ArrayList<Comedian>();
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
+		Connection connnection = null;
+		PreparedStatement preparedstatememt = null;
+		ResultSet resultset = null;
 		
 		
 		try {
@@ -113,29 +113,29 @@ public class ComedianDao {
 			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
 			String dbUser = "root";
 			String dbPass = "java0000";
-			conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+			connnection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 			
-			pstmt = conn.prepareStatement("select comedian_id,comedian_name,comedian_age from comedian");
+			preparedstatememt = connnection.prepareStatement("select comedian_id,comedian_name,comedian_age from comedian");
 			//select+ORDER BY+ASC내림차순?? 
-			rs = pstmt.executeQuery();
+			resultset = preparedstatememt.executeQuery();
 			
-			while(rs.next()) {
-				Comedian com = new Comedian();
-				com.setComedianId(Integer.parseInt(rs.getString("comedian_id")));
-				com.setComedianName(rs.getString("comedian_name"));
-				com.setComedianAge(rs.getInt("comedian_age"));
+			while(resultset.next()) {
+				Comedian comedian = new Comedian();
+				comedian.setComedianId(Integer.parseInt(resultset.getString("comedian_id")));
+				comedian.setComedianName(resultset.getString("comedian_name"));
+				comedian.setComedianAge(resultset.getInt("comedian_age"));
 				
-				ArrayCom.add(com);
+				ArrayCom.add(comedian);
 			}
 			
-		}catch(ClassNotFoundException cnfe){
-			cnfe.getMessage();
-		}catch(SQLException sqle) {	
-			sqle.printStackTrace();
+		}catch(ClassNotFoundException classex){
+			classex.getMessage();
+		}catch(SQLException sqlex) {	
+			sqlex.printStackTrace();
 		}finally {
-			if(rs != null) try{rs.close();} catch(SQLException sqle) {}
-			if(pstmt != null) try{pstmt.close();} catch(SQLException sqle) {}
-			if(conn != null) try{conn.close();}  catch(SQLException sqle) {}
+			if(resultset != null) try{resultset.close();} catch(SQLException sqlex) {}
+			if(preparedstatememt != null) try{preparedstatememt.close();} catch(SQLException sqlex) {}
+			if(connnection != null) try{connnection.close();}  catch(SQLException sqlex) {}
 		}
 		
 		
@@ -143,9 +143,9 @@ public class ComedianDao {
 		
 	}
 	
-	public void insertComedian(Comedian com) {
-		Connection conn = null;
-		PreparedStatement pstmt = null;
+	public void insertComedian(String comemianName,int comedianAge) {
+		Connection connnection = null;
+		PreparedStatement preparedstatememt = null;
 		
 		
 		
@@ -155,24 +155,24 @@ public class ComedianDao {
 			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
 			String dbUser = "root";
 			String dbPass = "java0000";
-			conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
+			connnection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 			
-			pstmt = conn.prepareStatement("insert into comedian values (0, ?, ?)");
+			preparedstatememt = connnection.prepareStatement("insert into comedian values (0, ?, ?)");
+			preparedstatememt.setString(1, comemianName);
+			preparedstatememt.setInt(2, comedianAge);
+			
+		
+			
+			preparedstatememt.executeUpdate();
 			
 			
-			pstmt.setString(1, com.getComedianName());
-			pstmt.setInt(2, com.getComedianAge());
-			
-			pstmt.executeUpdate();
-			
-			
-		}catch(ClassNotFoundException cnfex){
-			cnfex.printStackTrace();
-		}catch(SQLException sqle) {	
-			sqle.printStackTrace();
+		}catch(ClassNotFoundException classex){
+			classex.printStackTrace();
+		}catch(SQLException sqlex) {	
+			sqlex.printStackTrace();
 		}finally {
-			if(pstmt != null) try {pstmt.close();} catch(SQLException sqle) {}
-			if(conn != null) try {conn.close();} catch(SQLException sqle) {}
+			if(preparedstatememt != null) try {preparedstatememt.close();} catch(SQLException sqlex) {}
+			if(connnection != null) try {connnection.close();} catch(SQLException sqlex) {}
 		}
 		
 		

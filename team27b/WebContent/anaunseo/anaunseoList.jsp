@@ -39,19 +39,19 @@
 		<!-- 테이블 윗부분에서 각 칼럼위치의 제목을 먼저 잡아준다 -->
 	
 	<%
-		AnaunseoDao Ado = new AnaunseoDao();
-		ArrayList<Anaunseo> ArrayAna = Ado.selectAnaunseoList();		
-		for(int i = 0; i<ArrayAna.size(); i++){
-			Anaunseo Ana = ArrayAna.get(i);			
+		AnaunseoDao anaunseoDao = new AnaunseoDao();
+		ArrayList<Anaunseo> arrayAnaunseo = anaunseoDao.selectAnaunseoList();		
+		for(int i = 0; i<arrayAnaunseo.size(); i++){
+			Anaunseo anaunseo = arrayAnaunseo.get(i);			
 			//
 	%>
 				<tbody>	
 					<tr>
-						<td><%= Ana.getAnaunseoId()%></td>
-						<td><%= Ana.getAnaunseoName()%></td>
-						<td><%= Ana.getAnaunseoAge()%></td>	
-						<td><a href="<%= request.getContextPath() %>/anaunseo/anaunseoUpdateForm.jsp?AnaunseoId=<%=Ana.getAnaunseoId()%>">아나운서수정</a></td>
-						<td><a href="<%= request.getContextPath() %>/anaunseo/anaunseoDeleteAction.jsp?AnaunseoId=<%=Ana.getAnaunseoId()%>">아나운서삭제</a></td>		
+						<td><%= anaunseo.getAnaunseoId()%></td>
+						<td><%= anaunseo.getAnaunseoName()%></td>
+						<td><%= anaunseo.getAnaunseoAge()%></td>	
+						<td><a href="<%= request.getContextPath() %>/anaunseo/anaunseoUpdateForm.jsp?AnaunseoId=<%=anaunseo.getAnaunseoId()%>">아나운서수정</a></td>
+						<td><a href="<%= request.getContextPath() %>/anaunseo/anaunseoDeleteAction.jsp?AnaunseoId=<%=anaunseo.getAnaunseoId()%>">아나운서삭제</a></td>		
 					</tr>
 				</tbody>									
 	<%

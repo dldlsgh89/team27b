@@ -4,12 +4,12 @@
 
 <%
 	request.setCharacterEncoding("EUC-KR");
-	int comedianid = Integer.parseInt(request.getParameter("comedian_id"));
-	String comedianname = request.getParameter("comedian_name");
-	int comedianage = Integer.parseInt(request.getParameter("comedian_age"));
+	int comedianId = Integer.parseInt(request.getParameter("comedian_id"));
+	String comedianName = request.getParameter("comedian_name");
+	int comedianAge = Integer.parseInt(request.getParameter("comedian_age"));
 	
-	ComedianDao cdao = new ComedianDao();
-	cdao.comedianUpdateAction(comedianid, comedianname, comedianage);
+	ComedianDao comedianDao = new ComedianDao();
+	comedianDao.updateComedianAction(comedianId, comedianName, comedianAge);
 	
 	response.sendRedirect(request.getContextPath()+"/comedian/comedianList.jsp");
 %>
