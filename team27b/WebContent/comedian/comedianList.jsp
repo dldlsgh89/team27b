@@ -46,8 +46,8 @@
 						<td><%= comedian.getComedianId() %></td>
 						<td><%= comedian.getComedianName() %></td>
 						<td><%= comedian.getComedianAge() %></td>
-						<td><a href="<%= request.getContextPath() %>/comedian/comedianUpdateForm.jsp?ComedianId=<%=comedian.getComedianId()%>">코미디언수정</a></td>
-						<td><a href="<%= request.getContextPath() %>/comedian/comedianDeleteAction.jsp?ComedianId=<%=comedian.getComedianId()%>">코미디언삭제</a></td>	
+						<td><a href="<%= request.getContextPath() %>/comedian/comedianUpdateForm.jsp?ComedianId=<%=comedian.getComedianId()%>">수정</a></td>
+						<td><a href="<%= request.getContextPath() %>/comedian/comedianDeleteAction.jsp?ComedianId=<%=comedian.getComedianId()%>">삭제</a></td>	
 					</tr>
 				</tbody>	
 	<%

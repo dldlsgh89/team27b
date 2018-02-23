@@ -10,9 +10,9 @@
 </head>
 <body>
 <%
-	String comedianId = request.getParameter("ComedianId");
+	int comedianId = Integer.parseInt(request.getParameter("ComedianId"));
 	ComedianDao comedianDao = new ComedianDao();
-	Comedian comedian = comedianDao.updateComedianForm(Integer.parseInt(comedianId));
+	Comedian comedian = comedianDao.updateComedianForm(comedianId);
 	
 %>
 
@@ -32,7 +32,7 @@
 						<td><input type="text" name="comedian_age" value="<%= comedian.getComedianAge() %>" size="20"></td>
 					</tr>
 						<tr style = "text-align: left;">
-						<td><input type="submit" value="입력하기"></td>
+						<td><input type="submit" value="수정"></td>
 					</tr>
 				</thead>
 			</table>

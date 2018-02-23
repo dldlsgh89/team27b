@@ -13,7 +13,7 @@ import org.apache.catalina.connector.Request;
 
 public class ComedianDao {
 	
-	public void updateComedianAction(int comedianid, String comedianname,int comedianage) {
+	public void updateComedianAction(int comedianId, String comedianName,int comedianAge) {
 		Connection connnection = null;
 		PreparedStatement preparedstatememt = null;
 		try {
@@ -25,9 +25,9 @@ public class ComedianDao {
 			connnection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 			
 			preparedstatememt = connnection.prepareStatement("update comedian set comedian_name=?,comedian_age=? where comedian_id=?");
-			preparedstatememt.setString(1, comedianname);
-			preparedstatememt.setInt(2, comedianage);
-			preparedstatememt.setInt(3, comedianid);		
+			preparedstatememt.setString(1, comedianName);
+			preparedstatememt.setInt(2, comedianAge);
+			preparedstatememt.setInt(3, comedianId);		
 			
 			preparedstatememt.executeUpdate();
 			
@@ -42,7 +42,7 @@ public class ComedianDao {
 		}
 	}
 	
-	public Comedian updateComedianForm(int ComedianId) {
+	public Comedian updateComedianForm(int comedianId) {
 		Connection connnection = null;
 		PreparedStatement preparedstatememt = null;
 		ResultSet resultset = null;
@@ -54,7 +54,7 @@ public class ComedianDao {
 			String dbPass = "java0000";
 			connnection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);	
 			preparedstatememt = connnection.prepareStatement("select * from comedian where comedian_id = ?");		
-			preparedstatememt.setInt(1, ComedianId);
+			preparedstatememt.setInt(1, comedianId);
 			resultset = preparedstatememt.executeQuery();
 		
 			while(resultset.next()) {		
@@ -77,7 +77,7 @@ public class ComedianDao {
 		return comedian;		
 	}
 	
-	public void deleteComedian(int ComedianId){
+	public void deleteComedian(int comedianId){
 		Connection connnection = null;
 		PreparedStatement preparedstatememt = null;
 			try {
@@ -88,7 +88,7 @@ public class ComedianDao {
 				connnection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 				
 				preparedstatememt = connnection.prepareStatement("delete from comedian where comedian_id = ?");
-				preparedstatememt.setInt(1, ComedianId);
+				preparedstatememt.setInt(1, comedianId);
 				
 				preparedstatememt.executeUpdate();
 			}catch(SQLException sqlex){
@@ -102,7 +102,7 @@ public class ComedianDao {
 	}
 
 	public ArrayList<Comedian> selectComedianList(){
-		ArrayList<Comedian> ArrayCom = new ArrayList<Comedian>();
+		ArrayList<Comedian> arrayComedian = new ArrayList<Comedian>();
 		Connection connnection = null;
 		PreparedStatement preparedstatememt = null;
 		ResultSet resultset = null;
@@ -125,7 +125,7 @@ public class ComedianDao {
 				comedian.setComedianName(resultset.getString("comedian_name"));
 				comedian.setComedianAge(resultset.getInt("comedian_age"));
 				
-				ArrayCom.add(comedian);
+				arrayComedian.add(comedian);
 			}
 			
 		}catch(ClassNotFoundException classex){
@@ -139,7 +139,7 @@ public class ComedianDao {
 		}
 		
 		
-		return ArrayCom;
+		return arrayComedian;
 		
 	}
 	

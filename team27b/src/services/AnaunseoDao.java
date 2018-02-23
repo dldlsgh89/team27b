@@ -13,7 +13,7 @@ import services.Anaunseo;
 
 public class AnaunseoDao {
 	
-	public void updateAnaunseoAction(int anaunseoid, String anaunseoname,int anaunseoage) {
+	public void updateAnaunseoAction(int anaunseoId, String anaunseoName,int anaunseoAge) {
 		Connection connnection = null;
 		PreparedStatement preparedstatement = null;
 		try {
@@ -25,9 +25,9 @@ public class AnaunseoDao {
 			connnection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 			
 			preparedstatement = connnection.prepareStatement("update anaunseo set anaunseo_name=?,anaunseo_age=? where anaunseo_id=?");
-			preparedstatement.setString(1, anaunseoname);
-			preparedstatement.setInt(2, anaunseoage);
-			preparedstatement.setInt(3, anaunseoid);		
+			preparedstatement.setString(1, anaunseoName);
+			preparedstatement.setInt(2, anaunseoAge);
+			preparedstatement.setInt(3, anaunseoId);		
 			
 			preparedstatement.executeUpdate();
 			
@@ -46,7 +46,7 @@ public class AnaunseoDao {
 		
 	}
 	
-	public Anaunseo updateAnaunseoForm(int AnaunseoId) {
+	public Anaunseo updateAnaunseoForm(int anaunseoId) {
 		Connection connection = null;
 		PreparedStatement preparedstatement = null;
 		ResultSet resultset = null;
@@ -58,7 +58,7 @@ public class AnaunseoDao {
 			String dbPass = "java0000";
 			connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);	
 			preparedstatement = connection.prepareStatement("select * from anaunseo where anaunseo_id = ?");		
-			preparedstatement.setInt(1, AnaunseoId);
+			preparedstatement.setInt(1, anaunseoId);
 			resultset = preparedstatement.executeQuery();
 		
 			while(resultset.next()) {		
@@ -81,7 +81,7 @@ public class AnaunseoDao {
 		return anaunseo;		
 	}
 	
-	public void deleteAnaunseo(int AnaunseoId){
+	public void deleteAnaunseo(int anaunseoId){
 		Connection connention = null;
 		PreparedStatement preparedstatement = null;
 			try {
@@ -92,7 +92,7 @@ public class AnaunseoDao {
 				connention = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 				
 				preparedstatement = connention.prepareStatement("delete from anaunseo where anaunseo_id = ?");
-				preparedstatement.setInt(1, AnaunseoId);
+				preparedstatement.setInt(1, anaunseoId);
 				
 				preparedstatement.executeUpdate();
 			}catch(SQLException sqlex){
@@ -107,7 +107,7 @@ public class AnaunseoDao {
 	
 	
 	public ArrayList<Anaunseo> selectAnaunseoList() {
-		ArrayList<Anaunseo> ArrayAna = new ArrayList<Anaunseo>();
+		ArrayList<Anaunseo> arrayAnaunseo = new ArrayList<Anaunseo>();
 		Connection connention = null;
 		PreparedStatement preparedstatement = null;
 		ResultSet resultset = null;
@@ -133,7 +133,7 @@ public class AnaunseoDao {
 			   anaunseo.setAnaunseoId(resultset.getInt("anaunseo_id"));
 			   anaunseo.setAnaunseoName(resultset.getString("anaunseo_name"));
 			   anaunseo.setAnaunseoAge(resultset.getInt("anaunseo_age"));	
-			   ArrayAna.add(anaunseo);
+			   arrayAnaunseo.add(anaunseo);
 			}			
 		}catch(SQLException sqlex){
 			sqlex.getMessage(); //어떻게 출력된다고 했었는데 기억이 안난다
@@ -147,7 +147,7 @@ public class AnaunseoDao {
 			if(preparedstatement != null) try {preparedstatement.close();} catch(SQLException sqlex) {}
 			if(connention != null) try {connention.close();} catch(SQLException sqlex) {}
 		}
-		return ArrayAna;  //리턴 타입이 있으니 무조껀 return이 필요함 
+		return arrayAnaunseo;  //리턴 타입이 있으니 무조껀 return이 필요함 
 	
 	}
 	

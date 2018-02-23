@@ -50,8 +50,8 @@
 						<td><%= anaunseo.getAnaunseoId()%></td>
 						<td><%= anaunseo.getAnaunseoName()%></td>
 						<td><%= anaunseo.getAnaunseoAge()%></td>	
-						<td><a href="<%= request.getContextPath() %>/anaunseo/anaunseoUpdateForm.jsp?AnaunseoId=<%=anaunseo.getAnaunseoId()%>">아나운서수정</a></td>
-						<td><a href="<%= request.getContextPath() %>/anaunseo/anaunseoDeleteAction.jsp?AnaunseoId=<%=anaunseo.getAnaunseoId()%>">아나운서삭제</a></td>		
+						<td><a href="<%= request.getContextPath() %>/anaunseo/anaunseoUpdateForm.jsp?AnaunseoId=<%=anaunseo.getAnaunseoId()%>">수정</a></td>
+						<td><a href="<%= request.getContextPath() %>/anaunseo/anaunseoDeleteAction.jsp?AnaunseoId=<%=anaunseo.getAnaunseoId()%>">삭제</a></td>		
 					</tr>
 				</tbody>									
 	<%

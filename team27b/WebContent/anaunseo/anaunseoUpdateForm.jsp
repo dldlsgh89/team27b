@@ -9,9 +9,9 @@
 </head>
 <body>
 <%
-	String anaunseoId = request.getParameter("AnaunseoId");
+	int anaunseoId = Integer.parseInt(request.getParameter("AnaunseoId"));
 	AnaunseoDao anaunseoDao = new AnaunseoDao();
-	Anaunseo anaunseo = anaunseoDao.updateAnaunseoForm(Integer.parseInt(anaunseoId));
+	Anaunseo anaunseo = anaunseoDao.updateAnaunseoForm(anaunseoId);
 	
 %>
 
@@ -31,7 +31,7 @@
 						<td><input type="text" name="anaunseo_age" value="<%= anaunseo.getAnaunseoAge() %>" size="20"></td>
 					</tr>
 						<tr style = "text-align: left;">
-						<td><input type="submit" value="입력하기"></td>
+						<td><input type="submit" value="수정"></td>
 					</tr>
 				</thead>
 			</table>
