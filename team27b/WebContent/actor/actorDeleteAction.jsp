@@ -1,3 +1,4 @@
+<!-- 27±âBÁ¶ ¹è°ÇÇý -->
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ page import="services.ActorDao"%>
 <!DOCTYPE html>
@@ -8,9 +9,9 @@
 </head>
 <body>
 	<%
-		int ActorId = Integer.parseInt(request.getParameter("ActorId"));
+		int actorId = Integer.parseInt(request.getParameter("actorId"));
 		ActorDao actorDao = new ActorDao();
-		actorDao.deleteActor(ActorId);
+		actorDao.deleteActor(actorId);
 		response.sendRedirect(request.getContextPath() + "/actor/actorList.jsp");
 	%>
 </body>

@@ -1,14 +1,15 @@
+<!-- 27±âBÁ¶ ¹è°ÇÇý -->
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ page import="services.ActorDao"%>
 <!DOCTYPE html>
 <%
 	request.setCharacterEncoding("EUC-KR");
-	int actorid = Integer.parseInt(request.getParameter("actor_id"));
-	String actorname = request.getParameter("actor_name");
-	int actorage = Integer.parseInt(request.getParameter("actor_age"));
+	int actorId = Integer.parseInt(request.getParameter("actorId"));
+	String actorName = request.getParameter("actorName");
+	int actorAge = Integer.parseInt(request.getParameter("actorAge"));
 
 	ActorDao actorDao = new ActorDao();
-	actorDao.updateActionActor(actorid, actorname, actorage);
+	actorDao.updateActorAction(actorId, actorName, actorAge);
 
 	response.sendRedirect(request.getContextPath() + "/actor/actorList.jsp");
 %>

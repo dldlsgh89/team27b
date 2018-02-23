@@ -35,20 +35,20 @@ public class ActorDao {
 				actor.setActorAge(resultset.getInt("actor_age"));
 				arrayActor.add(actor);			
 			}
-		}catch(ClassNotFoundException e) {
-			e.getMessage();
-			e.printStackTrace();
-		} catch(SQLException e) {
-			e.printStackTrace();
+		}catch(ClassNotFoundException classex) {
+			classex.getMessage();
+			classex.printStackTrace();
+		} catch(SQLException sqlex) {
+			sqlex.printStackTrace();
 		}finally { 
-			if (resultset != null) try { resultset.close(); } catch(SQLException ex) {} 
-			if (preparedstatement != null) try { preparedstatement.close(); } catch(SQLException ex) {} 
-			if (connection != null) try { connection.close(); } catch(SQLException ex) {} 
+			if (resultset != null) try { resultset.close(); } catch(SQLException sqlex) {} 
+			if (preparedstatement != null) try { preparedstatement.close(); } catch(SQLException sqlex) {} 
+			if (connection != null) try { connection.close(); } catch(SQLException sqlex) {} 
 		}
 		return arrayActor;
 	}
 	
-	public void insertActor(Actor actor) {
+	public void insertActor(String actorName, int actorAge) {
 		Connection connection = null;
 		PreparedStatement preparedstatement = null;
 		ResultSet resultset = null;
@@ -60,21 +60,21 @@ public class ActorDao {
 			String dbPass = "java0000";
 			
 			connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
-			preparedstatement = connection.prepareStatement("insert into actor values (0, ?, ?)");
+			preparedstatement = connection.prepareStatement("INSERT INTO actor VALUES (0, ?, ?)");
 			
-			preparedstatement.setString(1, actor.getActorName());
-			preparedstatement.setInt(2, actor.getActorAge());
+			preparedstatement.setString(1, actorName);
+			preparedstatement.setInt(2, actorAge);
 			
 			preparedstatement.executeUpdate();
 			
-		}catch(ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch(SQLException e) {
-			e.printStackTrace();
+		}catch(ClassNotFoundException classex) {
+			classex.printStackTrace();
+		} catch(SQLException sqlex) {
+			sqlex.printStackTrace();
 		}finally { 
-			if (resultset != null) try { resultset.close(); } catch(SQLException e) {} 
-			if (preparedstatement != null) try { preparedstatement.close(); } catch(SQLException e) {} 
-			if (connection != null) try { connection.close(); } catch(SQLException e) {} 
+			if (resultset != null) try { resultset.close(); } catch(SQLException sqlex) {} 
+			if (preparedstatement != null) try { preparedstatement.close(); } catch(SQLException sqlex) {} 
+			if (connection != null) try { connection.close(); } catch(SQLException sqlex) {} 
 		}
 	}
 		public void deleteActor(int ActorId) {			
@@ -92,21 +92,21 @@ public class ActorDao {
 				preparedstatement.setInt(1, ActorId);  
 				preparedstatement.executeUpdate();  
 				
-			}catch(ClassNotFoundException e) {
-				e.printStackTrace();
-			} catch(SQLException e) {
-				e.printStackTrace();
+			}catch(ClassNotFoundException classex) {
+				classex.printStackTrace();
+			} catch(SQLException sqlex) {
+				sqlex.printStackTrace();
 			}finally { 
-				if (resultset != null) try { resultset.close(); } catch(SQLException e) {} 
-				if (preparedstatement != null) try { preparedstatement.close(); } catch(SQLException e) {} 
-				if (connection != null) try { connection.close(); } catch(SQLException e) {} 
+				if (resultset != null) try { resultset.close(); } catch(SQLException sqlex) {} 
+				if (preparedstatement != null) try { preparedstatement.close(); } catch(SQLException sqlex) {} 
+				if (connection != null) try { connection.close(); } catch(SQLException sqlex) {} 
 			}
 		}	
-public Actor updateFormActor(int ActorId) {
-	Connection connection = null;
-	PreparedStatement preparedstatement = null;
-	ResultSet resultset = null;
-	Actor actor = new Actor();
+	public Actor updateActorForm(int actorId) {
+		Connection connection = null;
+		PreparedStatement preparedstatement = null;
+		ResultSet resultset = null;
+		Actor actor = new Actor();
 	try {
 		Class.forName("com.mysql.jdbc.Driver");
 		String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
@@ -114,7 +114,7 @@ public Actor updateFormActor(int ActorId) {
 		String dbPass = "java0000";
 		connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 		preparedstatement = connection.prepareStatement("SELECT * FROM actor WHERE actor_id=?");
-		preparedstatement.setInt(1, ActorId);
+		preparedstatement.setInt(1, actorId);
 		resultset =preparedstatement.executeQuery();
 		
 		while(resultset.next()) {
@@ -122,18 +122,18 @@ public Actor updateFormActor(int ActorId) {
 			actor.setActorName(resultset.getString("actor_name"));
 			actor.setActorAge(resultset.getInt("actor_age"));
 		}
-	}catch(ClassNotFoundException e) {
-		e.printStackTrace();
-	} catch(SQLException e) {
-		e.printStackTrace();
+	}catch(ClassNotFoundException classex) {
+		classex.printStackTrace();
+	} catch(SQLException sqlex) {
+		sqlex.printStackTrace();
 	}finally { 
-		if (resultset != null) try { resultset.close(); } catch(SQLException e) {} 
-		if (preparedstatement != null) try { preparedstatement.close(); } catch(SQLException e) {} 
-		if (connection != null) try { connection.close(); } catch(SQLException e) {} 
+		if (resultset != null) try { resultset.close(); } catch(SQLException sqlex) {} 
+		if (preparedstatement != null) try { preparedstatement.close(); } catch(SQLException sqlex) {} 
+		if (connection != null) try { connection.close(); } catch(SQLException sqlex) {} 
 	}
 	return actor;	
 }
-	public void updateActionActor(int actorid, String actorname, int actorage ) {
+	public void updateActorAction(int actorId, String actorName, int actorAge ) {
 		Connection connection = null;
 		PreparedStatement preparedstatement = null;
 		try {
@@ -143,20 +143,20 @@ public Actor updateFormActor(int ActorId) {
 			String dbPass = "java0000";
 			connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 			preparedstatement = connection.prepareStatement("update actor set actor_name=?,actor_age=? where actor_id=?");
-			preparedstatement.setString(1, actorname);
-			preparedstatement.setInt(2, actorage);
-			preparedstatement.setInt(3, actorid);
+			preparedstatement.setString(1, actorName);
+			preparedstatement.setInt(2, actorAge);
+			preparedstatement.setInt(3, actorId);
 			
 			preparedstatement.executeUpdate();
-		}catch(ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch(SQLException e) {
-			e.printStackTrace();
+		}catch(ClassNotFoundException classex) {
+			classex.printStackTrace();
+		} catch(SQLException sqlex) {
+			sqlex.printStackTrace();
 		}finally { 
-			if (preparedstatement != null) try { preparedstatement.close(); } catch(SQLException e) {} 
-			if (connection != null) try { connection.close(); } catch(SQLException e) {} 
-	}
-	}
+			if (preparedstatement != null) try { preparedstatement.close(); } catch(SQLException sqlex) {} 
+			if (connection != null) try { connection.close(); } catch(SQLException sqlex) {} 
+			}
+		}
 	}
 
 

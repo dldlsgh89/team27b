@@ -8,12 +8,9 @@ request.setCharacterEncoding("euckr");
 String actressName = request.getParameter("actress_name");
 String actressAge = request.getParameter("actress_age");
 
-Actress actress = new Actress();
-actress.setActressName(actressName);
-actress.setActressAge(Integer.parseInt(actressAge));
 
 ActressDao actressdao = new ActressDao();
-actressdao.insertActress(actress);
+actressdao.insertActress(actressName, Integer.parseInt(actressAge));
 
 response.sendRedirect(request.getContextPath()+"/actress/actressList.jsp");
 %>

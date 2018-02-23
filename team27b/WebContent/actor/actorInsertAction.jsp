@@ -8,12 +8,8 @@ request.setCharacterEncoding("euckr");
 String actorName = request.getParameter("actor_name");
 String actorAge = request.getParameter("actor_age");
 
-Actor actor = new Actor();
-actor.setActorName(actorName);
-actor.setActorAge(Integer.parseInt(actorAge));
-
 ActorDao actordao = new ActorDao();
-actordao.insertActor(actor);
+actordao.insertActor(actorName, Integer.parseInt(actorAge));
 
 response.sendRedirect(request.getContextPath()+"/actor/actorList.jsp");
 %>

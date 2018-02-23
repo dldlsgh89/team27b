@@ -34,20 +34,20 @@ public class ActressDao {
 				actress.setActressAge(resultset.getInt("actress_age"));
 				arrayActress.add(actress);
 			}
-		} catch (ClassNotFoundException e) {
-			e.getMessage();
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (ClassNotFoundException classex) {
+			classex.getMessage();
+			classex.printStackTrace();
+		} catch (SQLException sqlex) {
+			sqlex.printStackTrace();
 		} finally {
-			if (resultset != null)try {resultset.close();} catch (SQLException ex) {}
-			if (preparedstatement != null)try {preparedstatement.close();} catch (SQLException ex) {}
-			if (connection != null)try {connection.close();} catch (SQLException ex) {}
+			if (resultset != null)try {resultset.close();} catch (SQLException sqlex) {}
+			if (preparedstatement != null)try {preparedstatement.close();} catch (SQLException sqlex) {}
+			if (connection != null)try {connection.close();} catch (SQLException sqlex) {}
 		}
 		return arrayActress;
 	}
 
-	public void insertActress(Actress actress) {
+	public void insertActress(String actressName, int actressAge) {
 		Connection connection = null;
 		PreparedStatement preparedstatement = null;
 		ResultSet resultset = null;
@@ -60,22 +60,22 @@ public class ActressDao {
 			connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 			preparedstatement = connection.prepareStatement("insert into actress values (0, ?, ?)");
 
-			preparedstatement.setString(1, actress.getActressName());
-			preparedstatement.setInt(2, actress.getActressAge());
+			preparedstatement.setString(1, actressName);
+			preparedstatement.setInt(2, actressAge);
 
 			preparedstatement.executeUpdate();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (ClassNotFoundException classex) {
+			classex.printStackTrace();
+		} catch (SQLException sqlex) {
+			sqlex.printStackTrace();
 		} finally {
-			if (resultset != null)try {resultset.close();} catch (SQLException e) {}
-			if (preparedstatement != null)try {preparedstatement.close();} catch (SQLException e) {}
-			if (connection != null)try {connection.close();} catch (SQLException e) {}
+			if (resultset != null)try {resultset.close();} catch (SQLException sqlex) {}
+			if (preparedstatement != null)try {preparedstatement.close();} catch (SQLException sqlex) {}
+			if (connection != null)try {connection.close();} catch (SQLException sqlex) {}
 		}
 	}
 
-	public void deleteActress(int ActressId) {
+	public void deleteActress(int actressId) {
 		Connection connection = null;
 		PreparedStatement preparedstatement = null;
 		ResultSet resultset = null;
@@ -87,21 +87,21 @@ public class ActressDao {
 
 			connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 			preparedstatement = connection.prepareStatement("DELETE FROM actress WHERE actress_id=?");
-			preparedstatement.setInt(1, ActressId);
+			preparedstatement.setInt(1, actressId);
 			preparedstatement.executeUpdate();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (ClassNotFoundException classex) {
+			classex.printStackTrace();
+		} catch (SQLException sqlex) {
+			sqlex.printStackTrace();
 		} finally {
-			if (resultset != null)try {resultset.close();} catch (SQLException e) {}
-			if (preparedstatement != null)try {preparedstatement.close();} catch (SQLException e) {}
+			if (resultset != null)try {resultset.close();} catch (SQLException sqlex) {}
+			if (preparedstatement != null)try {preparedstatement.close();} catch (SQLException sqlex) {}
 			if (connection != null)
-				try {connection.close();} catch (SQLException e) {}
+				try {connection.close();} catch (SQLException sqlex) {}
 		}
 	}
 
-	public Actress updateFormActress(int ActressId) {
+	public Actress updateActressForm(int actressId) {
 		Connection connection = null;
 		PreparedStatement preparedstatement = null;
 		ResultSet resultset = null;
@@ -115,7 +115,7 @@ public class ActressDao {
 
 			connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 			preparedstatement = connection.prepareStatement("SELECT * FROM actress WHERE actress_id=?");
-			preparedstatement.setInt(1, ActressId);
+			preparedstatement.setInt(1, actressId);
 			resultset = preparedstatement.executeQuery();
 
 			while (resultset.next()) {
@@ -123,19 +123,19 @@ public class ActressDao {
 				actress.setActressName(resultset.getString("actress_name"));
 				actress.setActressAge(resultset.getInt("actress_age"));
 			}
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (ClassNotFoundException classex) {
+			classex.printStackTrace();
+		} catch (SQLException sqlex) {
+			sqlex.printStackTrace();
 		} finally {
-			if (resultset != null)try {resultset.close();} catch (SQLException e) {}
-			if (preparedstatement != null)try {preparedstatement.close();} catch (SQLException e) {}
-			if (connection != null)try {connection.close();} catch (SQLException e) {}
+			if (resultset != null)try {resultset.close();} catch (SQLException sqlex) {}
+			if (preparedstatement != null)try {preparedstatement.close();} catch (SQLException sqlex) {}
+			if (connection != null)try {connection.close();} catch (SQLException sqlex) {}
 		}
 		return actress;
 	}
 
-	public void updateActionActress(int actressid, String actressname, int actressage) {
+	public void updateActressAction(int actressId, String actressName, int actressAge) {
 		Connection connection = null;
 		PreparedStatement preparedstatement = null;
 		try {
@@ -144,19 +144,19 @@ public class ActressDao {
 			String dbUser = "root";
 			String dbPass = "java0000";
 			connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
-			preparedstatement = connection.prepareStatement("update actress set actress_name=?,actress_age=? where actress_id=?");
-			preparedstatement.setString(1, actressname);
-			preparedstatement.setInt(2, actressage);
-			preparedstatement.setInt(3, actressid);
+			preparedstatement = connection.prepareStatement("UPDATE actress set actress_name=?,actress_age=? WHERE actress_id=?");
+			preparedstatement.setString(1, actressName);
+			preparedstatement.setInt(2, actressAge);
+			preparedstatement.setInt(3, actressId);
 
 			preparedstatement.executeUpdate();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (ClassNotFoundException classex) {
+			classex.printStackTrace();
+		} catch (SQLException sqlex) {
+			sqlex.printStackTrace();
 		} finally {
-			if (preparedstatement != null) try {preparedstatement.close();} catch (SQLException e) {}
-			if (connection != null) try {connection.close();} catch (SQLException e) {}
+			if (preparedstatement != null) try {preparedstatement.close();} catch (SQLException sqlex) {}
+			if (connection != null) try {connection.close();} catch (SQLException sqlex) {}
 		}
 	}
 }

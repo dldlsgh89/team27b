@@ -1,3 +1,4 @@
+<!-- 27기B조 배건혜 -->
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ page import ="services.Actor" %>
 <%@ page import ="services.ActorDao" %>
@@ -6,13 +7,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
+<title>actorUpdateForm</title>
 </head>
 <body>
 <%
-String ActorId = request.getParameter("ActorId");
+String actorId = request.getParameter("actor_id");
 ActorDao actorDao = new ActorDao();
-Actor actor = actorDao.updateFormActor(Integer.parseInt(ActorId));
+Actor actor = actorDao.updateActorForm(Integer.parseInt(actorId));
 %>
 <div>
 		<h1 style="text-align: center;">남배우 수정양식</h1>
