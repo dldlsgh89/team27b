@@ -10,12 +10,26 @@
 <title>actressList</title>
 </head>
 <body>
-
-	<div>
+<%
+	String S_ID = (String)session.getAttribute("S_ID");
+	
+	if(S_ID != null){
+	%>
+		<div>
 		<h1 style="text-align: center;">여배우 정보 목록</h1>
 	</div>
-	<div style="width: 100%;">
-		<div style="width: 85%; float: left;">
+	<div>
+				<span style="padding: 0 1% 0 1%;">
+				<a href="<%=request.getContextPath()%>/index.jsp" style="text-decoration: none;">홈화면</a></td>
+				</span>
+				
+				
+				<span style="padding: 0 1% 0 1%;">
+					<a href="<%=request.getContextPath()%>/actress/actressInsertForm.jsp" style="text-decoration: none;">여배우추가</a>
+				</span>		
+		</div>
+		<hr>
+		<div>
 			<table style="width: 100%;" border="1">
 				<thead>
 					<tr>
@@ -48,17 +62,48 @@
 				%>
 			</table>
 		</div>
-		<div style="float: left;">
-			<table>
-				<tr>
-					<td><a href="<%=request.getContextPath()%>/index.jsp">홈화면</a></td>
-				</tr>
-				<tr>
-					<td><a
-						href="<%=request.getContextPath()%>/actress/actressInsertForm.jsp">여배우추가</a></td>
-				</tr>
-			</table>
-		</div>
+	<%
+	}else{
+	%>
+		<div>
+		<h1 style="text-align: center;">여배우 정보 목록</h1>
 	</div>
+	<div>
+				<span style="padding: 0 1% 0 1%;">
+				<a href="<%=request.getContextPath()%>/index.jsp" style="text-decoration: none;">홈화면</a></td>
+				</span>
+	</div>
+	<hr>
+	<div>
+		<table style="width: 100%;" border="1">
+			<thead>
+				<tr>
+					<th>아이디</th>
+					<th>이름</th>
+					<th>나이</th>
+				</tr>
+			</thead>
+			<%
+				ActressDao actressDao = new ActressDao();
+				ArrayList<Actress> arrayActress = actressDao.selectActressList();
+				for (Actress actress : arrayActress) {
+					
+			%>
+			<tbody>
+				<tr>
+					<td><%=actress.getActressId()%></td>
+					<td><%=actress.getActressName()%></td>
+					<td><%=actress.getActressAge()%></td>
+				</tr>
+			</tbody>
+			<%
+				}
+			%>
+		</table>
+	</div>
+<%
+}
+%>
+	
 </body>
 </html>

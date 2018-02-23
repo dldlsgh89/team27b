@@ -12,16 +12,16 @@
 </head>
 <body>
 <%
-String actressId = request.getParameter("ActressId");
+int actressId = Integer.parseInt(request.getParameter("ActressId"));
 ActressDao actressDao = new ActressDao();
-Actress actress = actressDao.updateActressForm(Integer.parseInt(actressId));
+Actress actress = actressDao.updateActressForm(actressId);
 %>
 	<div>
 		<h1 style="text-align: center;">여배우 수정양식</h1>
 	</div>
 	<form action="<%=request.getContextPath()%>/actress/actressUpdateAction.jsp" method="post">
 		<input type="hidden" name= "actress_id" value="<%= actress.getActressId()%>">
-		<table style="margin: 0 auto; "1">
+		<table border="1">
 			<thead>
 				<tr>
 					<td>이름</td>

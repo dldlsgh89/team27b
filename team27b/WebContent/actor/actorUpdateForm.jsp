@@ -11,16 +11,16 @@
 </head>
 <body>
 <%
-String actorId = request.getParameter("ActorId");
+int actorId = Integer.parseInt(request.getParameter("ActorId"));
 ActorDao actorDao = new ActorDao();
-Actor actor = actorDao.updateActorForm(Integer.parseInt(actorId));
+Actor actor = actorDao.updateActorForm(actorId);
 %>
 <div>
 		<h1 style="text-align: center;">남배우 수정양식</h1>
 	</div>
 	<form action="<%=request.getContextPath()%>/actor/actorUpdateAction.jsp" method="post">
 		<input type="hidden" name= "actor_id" value="<%= actor.getActorId()%>">
-		<table style="margin: 0 auto; "1">
+		<table border="1">
 			<thead>
 				<tr>
 					<td>이름</td>

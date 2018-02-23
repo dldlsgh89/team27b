@@ -12,7 +12,7 @@
 </div>
 
 			<form action = "<%= request.getContextPath() %>/actor/actorInsertAction.jsp" method = "post">
-				<table style="margin: 0 auto; border="1">
+				<table border="1" style="margin: 0 auto;" >
 					<thead>
 						
 						<tr>
@@ -23,8 +23,8 @@
 						<th>나이</th>
 						<td><input type="text" name="actor_age" size="20"></td>
 						</tr>
-						<tr style = "text-align: left;">
-						<td><input type="submit" value="입력하기"></td>
+						<tr>
+						<td colspan="2" style="padding: 0 0 0 33%;"><input type="submit" value="입력하기"></td>
 						</tr>
 					</thead>
 				</table>
