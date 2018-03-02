@@ -1,4 +1,4 @@
-//나성수
+//27기 b조 나성수
 
 package services;
 
@@ -37,25 +37,45 @@ public class SingerDao {
 			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=euckr";
 			String dbUser = "root";
 			String dbPass = "java0000";
-			// DB연결관련 변수에 담긴값들을 getConnection메서드를 통해 DB연결을 한 후 Connection객체를 생성하여 주소값을 리턴시켜 conn 참조변수에 담는다
+			/*
+			 * DB연결관련 변수에 담긴값들을 getConnection메서드를 통해 DB연결을 한 후
+			 * Connection객체를 생성하여 주소값을 리턴시켜 conn 참조변수에 담는다
+			 */
 			connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
-			// 리턴받은 주소값을 받아 Connection객체에 들어간 후 쿼리실행 준비메서드를 실행하고 statement객체를 새로 생성 후 그 주소값을 리턴시켜 pstmt 참조변수에 담는다
+			/*
+			 * 리턴받은 주소값을 받아 Connection객체에 들어간 후 쿼리실행 준비메서드를 실행하고
+			 * statement객체를 새로 생성 후 그 주소값을 리턴시켜 pstmt 참조변수에 담는다
+			 */
 			preparedstatement = connection.prepareStatement("SELECT singer_id,singer_name,singer_age FROM singer ORDER BY singer_id ASC");
-			// 리턴받은 주소값을 받아 statement객체에 들어간 후 쿼리실행을 하고 ResultSet객체를 생성하여 쿼리 실행 결과를 데이터영역에 담고 생성된 주소값을 리턴하여 rs 참조변수에 담는다
+			/*
+			 * 리턴받은 주소값을 받아 statement객체에 들어간 후 쿼리실행을 하고
+			 * ResultSet객체를 생성하여 쿼리 실행 결과를 데이터영역에 담고
+			 * 생성된 주소값을 리턴하여 rs 참조변수에 담는다
+			 */
 			resultset = preparedstatement.executeQuery();
-			// 리턴받은 주소값을 받아 ResultSet객체내 next메서드를 호출하여 데이터영역에 한줄 한줄 데이터존재 유무를 읽어 오고 존재하면 true값을 리턴하고
-			//존재하지 않으면 false값을 리턴한다 while 반복문은 조건이 참일경우 블록내 명령문을 반복실행하고 거짓일때 반복을 멈추고 다음 실행 단계로 넘긴다
+			/*
+			 * 리턴받은 주소값을 받아 ResultSet객체내 next메서드를 호출하여 데이터영역에 한줄 한줄 데이터존재 유무를 읽어 오고
+			 * 데이터가 존재하면 true값을 리턴하고 존재하지 않으면 false값을 리턴한다
+			 * while 반복문은 조건이 참일경우 블록내 명령문을 반복실행하고
+			 * 거짓일때 반복을 멈추고 다음 실행 단계로 넘긴다
+			 */
 			while(resultset.next()) {
-				// Singer객체를 생성하여 DB에서 가져온데이터를 객체내에 저장하고 list에 저장한다
+				/*
+				 * Singer객체를 생성하여 DB에서 가져온데이터를 객체내에 저장하고 list에 저장한다
+				 */
 				Singer singer = new Singer();
 				singer.setSingerId(resultset.getInt("singer_id"));
 				singer.setSingerName(resultset.getString("singer_name"));
 				singer.setSingerAge(resultset.getInt("singer_age"));
 				arraySinger.add(singer);
 			}
-		// jdbc관련 예외발생시 catch부분으로 넘겨 처리한다
+		/*
+		 * jdbc관련 예외발생시 catch부분으로 넘겨 처리한다
+		 */
 		}catch(SQLException sqlex) {
-			// 예외발생된 java문구를 알려준다
+			/*
+			 * 예외발생된 java문구를 알려준다
+			 */
 			sqlex.getStackTrace();
 			// 예외발생된 이유를 알려준다
 			System.out.println(sqlex.getMessage());

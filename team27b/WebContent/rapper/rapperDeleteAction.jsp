@@ -1,4 +1,4 @@
-<!-- 나성수 -->
+<!-- 27기 b조 나성수 -->
 
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ page import="services.RapperDao" %>
