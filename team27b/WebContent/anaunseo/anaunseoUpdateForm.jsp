@@ -1,3 +1,5 @@
+<!-- //27기 B조 이인호 -->
+
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ page import = "services.AnaunseoDao" %>
 <%@ page import ="services.Anaunseo" %>
